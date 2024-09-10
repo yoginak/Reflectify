@@ -33,7 +33,7 @@ const createMoods = async (req, res) => {
       mood,
       timestamp,
     });
-    res.json({ message: "Mood Entry saved successfully" });
+    res.status(201).json({ message: "Mood Entry saved successfully" });
   } catch (error) {
     res.status(500).json({ message: "Error saving mood" });
   }
