@@ -6,4 +6,7 @@ const router = express.Router();
 router.route("/:id")
 .get(moodController.getMoods);
 
+router.route("/")
+.post(moodController.createMoods);
+
 export default router;
