@@ -4,14 +4,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "AvenirNextLTPro";
+    font-family: "PlayfairDisplay";
   }
 
 h1 {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-  font-family: "AvenirNextLTPro";
+  font-family: "PlayfairDisplay";
 
   @include tablet {
     font-size: 2.0625rem;
@@ -23,14 +23,14 @@ h2 {
   font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 700;
-  font-family: "AvenirNextLTPro";
+  font-family: "PlayfairDisplay";
 }
 
 h3 {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 700;
-  font-family: "AvenirNextLTPro";
+  font-family: "PlayfairDisplay";
 
   @include tablet {
     font-size: 0.875rem;
@@ -42,7 +42,7 @@ h4 {
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-weight: 700;
-  font-family: "AvenirNextLTPro";
+  font-family: "PlayfairDisplay";
 
   @include tablet {
     font-size: 0.75rem;
@@ -54,7 +54,7 @@ p {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
-  font-family: "AvenirNextLTPro";
+  font-family: "PlayfairDisplay";
 
   @include tablet {
     font-size: 0.875rem;
