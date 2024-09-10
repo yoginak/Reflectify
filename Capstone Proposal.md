@@ -54,7 +54,7 @@ In today's fast-paced world, mental health is becoming increasingly important. M
 
 - Home Page: Introduction to the app with link to dashboard.
 - Dashboard: Navigation bar on home page to access all features (Track Mood, Write Journal, View Insights, Daily View/Reflect, Uplift).
-- Track Mood: Page where users select an emoji representing their current mood.
+- Track Mood: Page where users select an emoji(loved, good, meh, bad, rad and sad) representing their current mood.
 - Write Journal: Simple text input for users to write daily journal entries.
 - View Insights: Charts and statistics visualizing mood patterns over time.
 - Daily View/Reflect: using Calendar/ Date picker showing mood and journal entries for each day.
@@ -108,6 +108,28 @@ success-
 }
 error-
 400- Date query parameter not provided
+500- Server Error
+
+**GET /moods/id**
+ Get all the mood entries for a user.
+- Parameters: Date
+- Response:
+success-
+ [
+    {
+        "id": 1,
+        "user_id": 3,
+        "mood": "good",
+        "timestamp": "2024-09-01T12:00:00.000Z"
+    },
+    {
+        "id": 2,
+        "user_id": 3,
+        "mood": "meh",
+        "timestamp": "2024-09-01T18:00:00.000Z"
+    }
+ ]
+error-
 500- Server Error
 
 **GET /journal/id?date=date**
