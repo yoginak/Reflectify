@@ -27,7 +27,6 @@ const createMoods = async (req, res) => {
   const timestamp = date
     ? moment.tz(date, "YYYY-MM-DD", "UTC").toDate()
     : new Date();
-  console.log(timestamp);
   try {
     await knex("moods").insert({
       user_id,
