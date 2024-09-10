@@ -6,13 +6,13 @@ app.use(express.json());
 app.use(cors());
 
 import moodRoutes from "./routes/mood-routes.js";
-// import journalRoutes from "./routes/journal-routes.js";
+import journalRoutes from "./routes/journal-routes.js";
 
 // all mood routes
 app.use("/moods", moodRoutes);
 
-// // all journal routes
-// app.use("/journal", journalRoutes);
+// all journal routes
+app.use("/journal", journalRoutes);
 
 
 const PORT = process.env.PORT || 5050;
