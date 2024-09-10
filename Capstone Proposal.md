@@ -97,7 +97,7 @@ In today's fast-paced world, mental health is becoming increasingly important. M
 
 **GET /moods/id?date=date**
  Get the mood entry for user for a specific date.
-- Parameters: Date
+- Parameters: Date (yyyy-mm-dd)
 - Response:
 success-
  {
@@ -107,7 +107,7 @@ success-
     "timestamp": "2024-09-02T11:30:00.000Z"
 }
 error-
-400- Date query parameter not provided
+400- Date query parameter not provided or invalid format.
 500- Server Error
 
 **GET /moods/id**
@@ -134,7 +134,7 @@ error-
 
 **GET /journal/id?date=date**
  Get the journal entries for user for a specific date.
-- Parameters: Date
+- Parameters: Date (yyyy-mm-dd)
 - Response: 
 success-
  {
@@ -145,7 +145,7 @@ success-
     "timestamp": "2024-09-02T11:30:00.000Z"
 }
 error-
-400- Date query parameter not provided
+400- Date query parameter not provided or invalid format
 500- Server Error
 
 **POST /journal**
