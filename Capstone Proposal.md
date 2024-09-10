@@ -85,12 +85,13 @@ In today's fast-paced world, mental health is becoming increasingly important. M
 
 ### Data
 
-Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out. 
+#### SQL Schema
+![sql schema diagram](<mockups/sql diagram.png>)
 
 ### Endpoints
 
 **POST /mood**
- Save the mood for a specific date.
+ Saves the mood for a specific date.
 - Parameters: userID, mood, date
 - Response: success message or error
 
@@ -99,10 +100,15 @@ Describe your data and the relationships between the data points. You can show t
 - Parameters: Date
 - Response: success-{id, mood} or error meassage in case of error
 
-**GET /mood/id?date=date**
+**GET /journal/id?date=date**
  Get the journal entries for user for a specific date.
 - Parameters: Date
 - Response: success-{id, title, content} or error meassage in case of error
+
+**POST /journal**
+ creates the journal entry.
+- Parameters:  userID, title, content, date
+- Response: success message or error
 
 ## Roadmap
 
