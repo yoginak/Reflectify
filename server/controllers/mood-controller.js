@@ -42,7 +42,12 @@ const createMoods = async (req, res) => {
 const getMoods = async (req, res) => {
   const { id } = req.params;
   const { date } = req.query;
+  
+  const dateRegex = /^\d{4}-\d{1,2}-\d{1,2}$/;
 
+  if (date && !dateRegex.test(date)) {
+    return res.status(400).json({ message: "Invalid date format. Please use YYYY-MM-DD format." });
+  }
   try {
     if (date) {
       // Fetch mood entries by specific date
