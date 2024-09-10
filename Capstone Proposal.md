@@ -90,25 +90,46 @@ In today's fast-paced world, mental health is becoming increasingly important. M
 
 ### Endpoints
 
-**POST /mood**
+**POST /moods**
  Saves the mood for a specific date.
 - Parameters: userID, mood, date
-- Response: success message or error
+- Response: success message(201) or error
 
-**GET /mood/id?date=date**
+**GET /moods/id?date=date**
  Get the mood entry for user for a specific date.
 - Parameters: Date
-- Response: success-{id, mood} or error meassage in case of error
+- Response:
+success-
+ {
+    "id": 1,
+    "user_id": 3,
+    "mood": "good",
+    "timestamp": "2024-09-02T11:30:00.000Z"
+}
+error-
+400- Date query parameter not provided
+500- Server Error
 
 **GET /journal/id?date=date**
  Get the journal entries for user for a specific date.
 - Parameters: Date
-- Response: success-{id, title, content} or error meassage in case of error
+- Response: 
+success-
+ {
+    "id": 1,
+    "user_id": 1,
+    "title": "Morning Reflections",
+    "content": "Had a peaceful morning. Feeling optimistic about the day. The birds were chirping, and the cool breeze made me feel refreshed. I hope to carry this calm energy into the rest of the day.",
+    "timestamp": "2024-09-02T11:30:00.000Z"
+}
+error-
+400- Date query parameter not provided
+500- Server Error
 
 **POST /journal**
  creates the journal entry.
 - Parameters:  userID, title, content, date
-- Response: success message or error
+- Response: success message(201) or error
 
 ## Roadmap
 
