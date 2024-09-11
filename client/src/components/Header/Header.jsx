@@ -21,9 +21,16 @@ export default function Header() {
 
     <>
     {[false].map((expand) => (
-      <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+      <Navbar key={expand} expand={expand} className="header-custom mb-3">
         <Container fluid>
-          <Navbar.Brand href="#">Reflectify</Navbar.Brand>
+          {/* <Navbar.Brand href="#">Reflectify</Navbar.Brand> */}
+          <Navbar.Brand as={Link} to="/">
+              <img 
+                src={logo} 
+                alt="Reflectify Logo" 
+                style={{ width: '120px', height: 'auto' }}  // Adjust the size of your logo
+              />
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${expand}`}
@@ -31,9 +38,13 @@ export default function Header() {
             placement="end"
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                Reflectify
-              </Offcanvas.Title>
+            <Navbar.Brand as={Link} to="/">
+              <img 
+                src={logo} 
+                alt="Reflectify Logo" 
+                style={{ width: '120px', height: 'auto' }}  // Adjust the size of your logo
+              />
+            </Navbar.Brand>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">

@@ -1,16 +1,6 @@
 @import "../../styles/partials/mixins";
 
-.header{
-
-    &__logo{
-        width: 15rem;
-        @include tablet{
-            width: 25rem;
-        }
-        &-wrapper{ 
-            @include desktop{
-                display: flex;
-            }
-        }
-    }
-}
+.header-custom {
+    background-color: white; 
+    color: black;  
+  }
