@@ -1,12 +1,13 @@
 @import "../../styles/partials/mixins";
 
-body {
-    background: linear-gradient(to right, #a8edea  , #fed6e3);
-  }
-  
+body{
+    background: linear-gradient(to right, #a8edea  , #fed6e3);  
+}
+
   .container {
     width: 100%;
     padding: 50px 10px;
+   
   }
   
   .wrapper {

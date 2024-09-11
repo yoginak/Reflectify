@@ -39,5 +39,8 @@
   }
 
   .animation{
+    width:100vh;
+    @include tablet{
     width: 35%;
+    }
   }
