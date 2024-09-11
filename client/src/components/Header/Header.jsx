@@ -34,11 +34,11 @@ export default function Header() {
               <img 
                 src={logo} 
                 alt="Reflectify Logo" 
-                style={{ width: '120px', height: 'auto' }}  // Adjust the size of your logo
+                style={{ width: '120px', height: 'auto' }}
               />
             </Navbar.Brand>
             </Offcanvas.Header>
-            <Offcanvas.Body>
+            <Offcanvas.Body className='header__body'>
               <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link as={Link} to="/moods">
               <BsFillEmojiSmileFill style={{ marginRight: '8px', color: '#ffcc00' }} />

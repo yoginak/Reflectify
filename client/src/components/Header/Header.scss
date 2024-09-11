@@ -1,7 +1,12 @@
 @import "../../styles/partials/mixins";
 
-.header-custom {
+.header{
+&-custom {
     background-color: white; 
     color: black;  
     background-color: #e1fcff;   
   }
+  &__body{
+    font-size: 2em;
+  }
+}
