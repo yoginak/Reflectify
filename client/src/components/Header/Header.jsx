@@ -14,9 +14,8 @@ export default function Header() {
   return (
    <>
     {[false].map((expand) => (
-      <Navbar key={expand} expand={expand} className="header-custom mb-3">
+      <Navbar key={expand} expand={expand} className="header-custom">
         <Container fluid>
-          {/* <Navbar.Brand href="#">Reflectify</Navbar.Brand> */}
           <Navbar.Brand as={Link} to="/">
               <img 
                 src={headerLogo} 

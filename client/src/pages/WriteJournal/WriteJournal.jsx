@@ -24,7 +24,7 @@ export default function WriteJournal() {
       return;
     }
 
-    const userId = 2; 
+    const userId = 2; //hardcoded now, will retrieve from props later
     const journalData = {
       user_id: userId,  
       title,
@@ -62,7 +62,7 @@ export default function WriteJournal() {
       <div className="write-new gradient-background">
         <Suspense fallback={<div>Loading...</div>}>
           <Row>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6}  className='animation'>
               <WaveRobot />
             </Col>
             <Col
@@ -105,7 +105,7 @@ export default function WriteJournal() {
                       <Form.Control
                         as="textarea"
                         placeholder="How was your day?"
-                        rows={8}
+                        rows={24}
                         value={content}
                         onChange={(event) => setContent(event.target.value)}
                       />
@@ -113,8 +113,8 @@ export default function WriteJournal() {
                     <Button variant="primary" type="submit" disabled={loading}>
                       {loading ? "Submitting..." : "Submit"}
                     </Button>
-                    {error && <p style={{ color: "red" }}>{error}</p>}
-                    {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+                    {error && <p className='error'>{error}</p>}
+                    {successMessage && <p className='success'>{successMessage}</p>}
                   </Form>
                 </Card.Body>
               </Card>

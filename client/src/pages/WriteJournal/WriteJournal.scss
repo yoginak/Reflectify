@@ -1,3 +1,5 @@
+@import "../../styles/partials/mixins";
+
 .write-new Button {
     background-color: #f68989;
     border-color: #874356;
@@ -8,25 +10,34 @@
     border-color: black;
   }
   
-  /* Public Journals */
-  .post-card-view {
-    margin: 1% 5%;
-  }
-  
-  .post-card-view:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-  }
-  
-  .post-view-container {
-    padding: 2% 3%;
-  }
+  .gradient-background {
+    @include mobile{
+    background: linear-gradient(to right, #a8edea  , #fed6e3);
+    color: #333; }
+    @include tablet{
+        background-color: #a8edea;  
+    }
+    
+  }  
 
   .shadow{
-    margin: 10px;
+    margin: 1rem;
   }
 
   .journal__header{
-    font-Size: 2em;
+    font-Size: 2.5em;
     display: inline-block;
     margin:10px;
+  }
+
+  .error{
+    color:red;
+  }
+
+  .success{
+    color: green;
+  }
+
+  .animation{
+    width: 35%;
   }
