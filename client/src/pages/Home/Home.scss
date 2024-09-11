@@ -61,4 +61,12 @@ text-align: center;
         }
         
     }
+    &-title{
+        display: flex;
+        justify-content: center;
+        background-color: mistyrose;
+        font-weight: 700;
+        height: 60px;
+        align-items: center;
+    }
 }

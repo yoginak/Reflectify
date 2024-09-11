@@ -21,6 +21,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="features-title">
+        <h2 className="features-title__text">Features</h2>
+      </div>
       <section className="features">
       <div className="features__type">
       <img src={feature2} alt="feature_2" className="features-image features-image--track" />
