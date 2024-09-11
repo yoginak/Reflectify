@@ -11,15 +11,7 @@ import { BsFillJournalBookmarkFill, BsFillEmojiSmileFill, BsArrowUpCircle, BsBar
 
 export default function Header() {
   return (
-    // <header className="header">
-    //      <div className="header__logo-wrapper">
-    //     <Link to="/">
-    //       <img className="header__logo" src={logo} alt="Reflectify Logo" />
-    //     </Link>
-    //     </div>
-    // </header>
-
-    <>
+   <>
     {[false].map((expand) => (
       <Navbar key={expand} expand={expand} className="header-custom mb-3">
         <Container fluid>
