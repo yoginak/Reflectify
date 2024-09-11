@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "../../assets/logos/header_img_logo.png"
+import headerLogo from "../../assets/logos/headerTitle.png"
 import "./Header.scss";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -18,7 +19,7 @@ export default function Header() {
           {/* <Navbar.Brand href="#">Reflectify</Navbar.Brand> */}
           <Navbar.Brand as={Link} to="/">
               <img 
-                src={logo} 
+                src={headerLogo} 
                 alt="Reflectify Logo" 
                 style={{ width: '120px', height: 'auto' }}  // Adjust the size of your logo
               />

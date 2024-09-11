@@ -46,3 +46,19 @@
     }
   }
 }
+
+.features{
+//background-color:darksalmon;
+background-color: lightcyan;
+text-align: center;
+    @include tablet{
+        display: flex;
+        align-items: flex-end;
+    }
+    &-image{
+        &--track{
+            width:100%;            
+        }
+        
+    }
+}
