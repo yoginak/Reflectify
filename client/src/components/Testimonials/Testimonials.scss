@@ -1,0 +1,56 @@
+@import "../../styles/partials/mixins";
+
+.testimonial{
+    &-section{
+        padding: 1rem;
+        background-color: mistyrose;
+    }
+    &-title{
+        padding: 1rem 0;
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5%; 
+}
+
+@include mobile {
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 60%; 
+    width: 10%; 
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    font-size: 24px; 
+  }
+}
+
+@include tablet {
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 55%; 
+    width: 8%;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    font-size: 28px; 
+  }
+}
+
+@include desktop {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%; 
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    font-size: 32px; 
+  }
+}

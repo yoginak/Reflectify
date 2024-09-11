@@ -5,6 +5,7 @@ import feature1 from "../../assets/images/typing.svg";
 import feature2 from "../../assets/images/calendar.svg";
 import feature3 from "../../assets/images/reading.svg";
 import feature4 from "../../assets/images/meditation.svg";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -59,6 +60,7 @@ export default function Home() {
             </h4>
       </div>
       </section>
+      <Testimonials/>
     </div>
   );
 }
