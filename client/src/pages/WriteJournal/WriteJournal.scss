@@ -1,0 +1,32 @@
+.write-new Button {
+    background-color: #f68989;
+    border-color: #874356;
+  }
+  
+  .write-new Button:hover {
+    background-color: #c65d78;
+    border-color: black;
+  }
+  
+  /* Public Journals */
+  .post-card-view {
+    margin: 1% 5%;
+  }
+  
+  .post-card-view:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  }
+  
+  .post-view-container {
+    padding: 2% 3%;
+  }
+
+  .shadow{
+    margin: 10px;
+  }
+
+  .journal__header{
+    font-Size: 2em;
+    display: inline-block;
+    margin:10px;
+  }
