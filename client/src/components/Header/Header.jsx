@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "../../assets/logos/header_img_logo.png"
-import headerLogo from "../../assets/logos/headerTitle.png"
+import headerLogo from "../../assets/logos/header-title.png"
 import "./Header.scss";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';

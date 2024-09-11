@@ -22,7 +22,7 @@
   }
 
   &__title {
-    color: #dc3545;
+    color: #00a7ba;
     font-weight: 700;
     &-wrapper {
       display: flex;
@@ -50,7 +50,7 @@
 .features{
 padding: 1rem;
 //background-color:darksalmon;
-background-color: lightcyan;
+background-color: #e1fcff;
 text-align: center;
     @include tablet{
         display: flex;
@@ -65,7 +65,7 @@ text-align: center;
     &-title{
         display: flex;
         justify-content: center;
-        background-color: mistyrose;
+        background-color: #ffe4e1;
         font-weight: 700;
         height: 60px;
         align-items: center;

@@ -29,16 +29,16 @@ export default function Home() {
       <div className="features__type">
       <img src={feature2} alt="feature_2" className="features-image features-image--track" />
             <h2>Track</h2>
-            <h4>
+            <h5>
             Monitor your mood daily and discover patterns over time.
-            </h4>
+            </h5>
       </div>
       <div className="features__type">
       <img src={feature1} alt="Track" className="features-image" />
             <h2>Write</h2>
-            <h4>
+            <h5>
               Capture your thoughts and reflect with personal journaling.
-            </h4>
+            </h5>
       </div>
       <div className="features__type">
       <img
@@ -48,16 +48,16 @@ export default function Home() {
               style={{ marginTop: 60, marginBottom: 60 }}
             />
             <h2>Insights</h2>
-            <h4>
+            <h5>
             Gain meaningful insights into your emotions and behaviors.
-            </h4>
+            </h5>
       </div>
       <div className="features__type">
       <img src={feature4} alt="feature_4" className="features-image" />
             <h2>Uplift</h2>
-            <h4>
+            <h5>
             Boost your well-being with personalized uplifting activities.
-            </h4>
+            </h5>
       </div>
       </section>
       <Testimonials/>
