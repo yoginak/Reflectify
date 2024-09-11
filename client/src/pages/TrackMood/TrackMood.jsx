@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import "./TrackMood.scss";
 import { TypeAnimation } from "react-type-animation";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import axios from 'axios';
 
 export default function TrackMood() {
   const userId = 3; 
   const [selectedMood, setSelectedMood] = useState(null); 
+  const [showModal, setShowModal] = useState(false); 
+  const [modalMessage, setModalMessage] = useState(''); 
+  const [modalTitle, setModalTitle] = useState(''); 
 
-  
   const handleMoodClick = (mood) => {
     setSelectedMood(mood); 
   };
 
-    const handleSubmit = async () => {
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleSubmit = async () => {
     if (!selectedMood) {
-      alert('Please select a mood before submitting.');
+      setModalTitle('Submission Failed');
+      setModalMessage('Please select a mood before submitting.');
+      setShowModal(true);
       return;
     }
 
@@ -25,19 +31,26 @@ export default function TrackMood() {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/journal/', journalData, {
+      const response = await axios.post('http://localhost:8080/moods/', data, {
         headers: {
           "Content-Type": "application/json"
         }
       });
-      if (response.status === 201){
-        const result = await response.json();
-        console.log('Mood updated successfully:', result);
-        setSelectedMood(null); 
+
+      if (response.status === 201) {
+        setModalTitle('Mood Saved');
+        setModalMessage('Your mood has been successfully tracked.');
+        setShowModal(true);
+        setSelectedMood(null);  
       } else {
-        console.error('Failed to update mood:', response.statusText);
+        setModalTitle('Submission Failed');
+        setModalMessage('Failed to update mood, please try again.');
+        setShowModal(true);
       }
     } catch (error) {
+      setModalTitle('Error');
+      setModalMessage('An error occurred while updating your mood.');
+      setShowModal(true);
       console.error('Error updating mood:', error);
     }
   };
@@ -47,18 +60,17 @@ export default function TrackMood() {
       <div>
         <TypeAnimation
           className='mood__header'
-          sequence={[
-            "How are you feeling today?",
-            2000,
-          ]}
+          sequence={["How are you feeling today?", 2000]}
           wrapper="span"
           cursor={true}
           repeat={Infinity}
         />
       </div>
+      
       <div className="container">
         <div className="wrapper">
           <div className="positive">
+            {/* Loved Mood */}
             <div
               className={`emoji love ${selectedMood === 'loved' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('loved')}
@@ -67,17 +79,15 @@ export default function TrackMood() {
                 <h4>loved</h4>
                 <figure className="face">
                   <span className="eyes">
-                    <span className="heart-eye">
-                      <span className="heart"></span>
-                    </span>
-                    <span className="heart-eye">
-                      <span className="heart"></span>
-                    </span>
+                    <span className="heart-eye"><span className="heart"></span></span>
+                    <span className="heart-eye"><span className="heart"></span></span>
                   </span>
                   <span className="mouth tounge"></span>
                 </figure>
               </div>
             </div>
+
+            {/* Rad Mood */}
             <div
               className={`emoji laugh ${selectedMood === 'rad' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('rad')}
@@ -93,6 +103,8 @@ export default function TrackMood() {
                 </figure>
               </div>
             </div>
+
+            {/* Good Mood */}
             <div
               className={`emoji smile ${selectedMood === 'good' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('good')}
@@ -109,7 +121,9 @@ export default function TrackMood() {
               </div>
             </div>
           </div>
+
           <div className="negative">
+            {/* Meh Mood */}
             <div
               className={`emoji speechless ${selectedMood === 'meh' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('meh')}
@@ -125,6 +139,8 @@ export default function TrackMood() {
                 </figure>
               </div>
             </div>
+
+            {/* Bad Mood */}
             <div
               className={`emoji sad ${selectedMood === 'bad' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('bad')}
@@ -140,6 +156,8 @@ export default function TrackMood() {
                 </figure>
               </div>
             </div>
+
+            {/* Angry Mood */}
             <div
               className={`emoji angry ${selectedMood === 'angry' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('angry')}
@@ -158,11 +176,24 @@ export default function TrackMood() {
           </div>
         </div>
       </div>
+
       <div className='button-wrapper'>
         <Button variant="primary" className='mood-button' onClick={handleSubmit}>
           Save Mood
         </Button>
       </div>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{modalTitle}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
