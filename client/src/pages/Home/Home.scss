@@ -4,6 +4,13 @@
   align-items: center;
   flex-direction: column-reverse;
   background-color: white;
+  height: 55vh;
+  @include tablet{
+    height:35vh;
+  }
+  @include desktop{
+    height: auto;
+  }
   &__img {
     width: 90%;
   }
@@ -66,9 +73,13 @@ text-align: center;
     &-title{
         display: flex;
         justify-content: center;
-        background-color: #ffe4e1;
+        //background-color: #ffe4e1;
+        background: linear-gradient(to bottom, white, #e1fcff);
         font-weight: 700;
         height: 60px;
         align-items: center;
+        @include desktop{
+          padding-top: 6rem;
+        }
     }
 }
