@@ -3,6 +3,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'; 
 import axios from 'axios';
+import "./Reflect.scss";
 
 export default function Reflect() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -38,7 +39,9 @@ export default function Reflect() {
   }, [selectedDate]);
 
   return (
-    <div>
+    <main className="reflect">
+      <section className="reflect__section-top">
+      <div className="reflect-calendar">
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DateCalendar
           value={selectedDate}
@@ -46,7 +49,23 @@ export default function Reflect() {
           disableFuture
         />
       </LocalizationProvider>
+      </div>
+      <div className="reflect-mood">
+      <h2>Moods for {selectedDate.toDateString()}</h2>
+      {moods.length > 0 ? (
+        moods.map((mood) => (
+          <div key={mood.id}>
+            <p>Mood: {mood.mood}</p>
+            <small>{new Date(mood.timestamp).toLocaleString()}</small>
+          </div>
+        ))
+      ) : (
+        <p>No moods for this date.</p>
+      )}
+      </div>
+      </section>
 
+      <section className="reflect__section-bottom">
       <h2>Journals for {selectedDate.toDateString()}</h2>
       {journals.length > 0 ? (
         journals.map((journal) => (
@@ -59,18 +78,7 @@ export default function Reflect() {
       ) : (
         <p>No journals for this date.</p>
       )}
-
-      <h2>Moods for {selectedDate.toDateString()}</h2>
-      {moods.length > 0 ? (
-        moods.map((mood) => (
-          <div key={mood.id}>
-            <p>Mood: {mood.mood}</p>
-            <small>{new Date(mood.timestamp).toLocaleString()}</small>
-          </div>
-        ))
-      ) : (
-        <p>No moods for this date.</p>
-      )}
-    </div>
+      </section>     
+    </main>
   );
 };
