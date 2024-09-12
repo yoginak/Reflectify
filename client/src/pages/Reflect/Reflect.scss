@@ -5,20 +5,23 @@
     flex-direction: column;
     &__section{
         &-top{
-            margin: 2rem 1rem;
+            padding: 2rem 1rem;
             display: flex;
             flex-direction: column;
             @include tablet{
-            margin: 3rem 2rem;
+            padding: 3rem 2rem;
             flex-direction: row;
             justify-content: space-around;
             }
         }
         &-bottom{
-            margin: 2rem 1rem;
+            padding: 1rem;
             @include tablet{
-                margin: 3rem 2rem;
+                padding: 1rem 2rem;
             }
+        }
+        &-header{
+            padding-bottom: 1rem;
         }
     }
 }

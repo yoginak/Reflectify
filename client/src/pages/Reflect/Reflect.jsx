@@ -11,6 +11,33 @@ export default function Reflect() {
   const [moods, setMoods] = useState([]);
   const userId =3;
 
+  function setMoodEmoji(mood){
+    let moodEmoji = null;
+    if(mood ==="rad"){
+      moodEmoji ="😁";
+    }
+    else if(mood ==="good"){
+      moodEmoji ="😊";
+    }
+    else if(mood ==="loved"){
+      moodEmoji ="😍";
+    }
+    else if(mood ==="bad"){
+      moodEmoji ="😒";
+    }
+    else if(mood ==="meh"){
+      moodEmoji ="😐";
+    }
+    else if(mood ==="angry"){
+      moodEmoji ="😡";
+    }
+    else
+    {
+      moodEmoji;
+    }
+    return moodEmoji;
+  }
+
   useEffect(() => {
     const fetchJournals = async () => {
       try {
@@ -51,12 +78,12 @@ export default function Reflect() {
       </LocalizationProvider>
       </div>
       <div className="reflect-mood">
-      <h2>Moods for {selectedDate.toDateString()}</h2>
+      <h2 className="reflect__section-header">Moods for {selectedDate.toDateString()}</h2>
       {moods.length > 0 ? (
         moods.map((mood) => (
           <div key={mood.id}>
-            <p>Mood: {mood.mood}</p>
-            <small>{new Date(mood.timestamp).toLocaleString()}</small>
+            <p>Mood: {mood.mood} {setMoodEmoji(mood.mood)}</p>
+            <p>{new Date(mood.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
           </div>
         ))
       ) : (
@@ -66,13 +93,13 @@ export default function Reflect() {
       </section>
 
       <section className="reflect__section-bottom">
-      <h2>Journals for {selectedDate.toDateString()}</h2>
+      <h2 className="reflect__section-header">Journals for {selectedDate.toDateString()}</h2>
       {journals.length > 0 ? (
         journals.map((journal) => (
           <div key={journal.id}>
-            <h3>{journal.title}</h3>
+            <h4>{journal.title}</h4>
             <p>{journal.content}</p>
-            <small>{new Date(journal.timestamp).toLocaleString()}</small>
+            <p>{new Date(journal.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
           </div>
         ))
       ) : (
