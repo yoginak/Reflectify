@@ -77,11 +77,11 @@ export default function Reflect() {
         />
       </LocalizationProvider>
       </div>
-      <div className="reflect-mood">
-      <h2 className="reflect__section-header">Moods for {selectedDate.toDateString()}</h2>
+      <div className="reflect__mood">
+      <h2 className="reflect__section-header reflect__section-header--style">Moods for {selectedDate.toDateString()}</h2>
       {moods.length > 0 ? (
         moods.map((mood) => (
-          <div key={mood.id}>
+          <div className="reflect__mood-body" key={mood.id}>
             <p>Mood: {mood.mood} {setMoodEmoji(mood.mood)}</p>
             <p>{new Date(mood.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
           </div>
@@ -96,7 +96,7 @@ export default function Reflect() {
       <h2 className="reflect__section-header">Journals for {selectedDate.toDateString()}</h2>
       {journals.length > 0 ? (
         journals.map((journal) => (
-          <div key={journal.id}>
+          <div className="reflect__section-body" key={journal.id}>
             <h4>{journal.title}</h4>
             <p>{journal.content}</p>
             <p>{new Date(journal.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>

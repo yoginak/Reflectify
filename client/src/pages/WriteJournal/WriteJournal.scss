@@ -10,16 +10,6 @@
     border-color: black;
   }
   
-  .gradient-background {
-    @include mobile{
-    background: linear-gradient(to right, #a8edea  , #fed6e3);
-    color: #333; }
-    @include tablet{
-        background-color: #a8edea;  
-    }
-    
-  }  
-
   .shadow{
     margin: 1rem;
   }

@@ -59,7 +59,7 @@ export default function WriteJournal() {
 
   return (
     <div>
-      <div className="write-new gradient-background">
+      <div className="write-new">
         <Suspense fallback={<div>Loading...</div>}>
           <Row>
             <Col xs={12} md={6}  className='animation'>

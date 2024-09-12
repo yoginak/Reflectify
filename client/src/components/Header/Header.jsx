@@ -26,7 +26,7 @@ export default function Header() {
               style={{ width: '120px', height: 'auto' }}              
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls={`offcanvasNavbar`} onClick={handleShow} />
+          <Navbar.Toggle aria-controls={`offcanvasNavbar`} onClick={handleShow}  style={{ color: 'powderblue' }} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar`}
             show={showOffcanvas}

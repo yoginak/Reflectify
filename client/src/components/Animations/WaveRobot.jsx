@@ -18,7 +18,7 @@ const WaveRobot = () => {
       return () => anim.destroy(); 
     }, []);
   
-    return <div className="gradient-background" style={{ height: 250 }} ref={animation}></div>;
+    return <div style={{ height: 250}} ref={animation}></div>;
   };
 
   export default WaveRobot;
