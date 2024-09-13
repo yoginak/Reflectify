@@ -10,8 +10,17 @@
     border-color: black;
   }
   
+  .write-new{
+    background-position: left top;
+    
+    background-image: url("../../assets/images/background-image.jpg");
+    background-repeat: no-repeat;
+  }
   .shadow{
-    margin: 1rem;
+    margin: 1.5rem;
+    @include tablet{
+    margin: 3rem;
+    }
   }
 
   .journal__header{
