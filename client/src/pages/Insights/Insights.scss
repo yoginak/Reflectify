@@ -1,0 +1,38 @@
+@import "../../styles/partials/mixins";
+.insights {
+  margin: 3rem;
+  &__charts {
+    display: flex;
+    flex-direction: column;
+    &-title {
+      margin-bottom: 3rem;
+    }
+    &-bar {
+      margin-top: 3rem;
+    }
+    &-pie {
+      margin-top: 3rem;
+    }
+  }
+  &-bar {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    margin-left: 4px;
+  }
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.react-datepicker {
+  &-wrapper {
+    margin-bottom: 1rem;
+  }
+}
