@@ -7,7 +7,6 @@
         border: 1px solid powderblue;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 6px powderblue;
         &-body{
             margin-left: 10px;
         }
@@ -20,7 +19,7 @@
             @include tablet{
             padding: 3rem 2rem;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             }
         }
         &-bottom{

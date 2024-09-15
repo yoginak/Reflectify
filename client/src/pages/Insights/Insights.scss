@@ -1,6 +1,9 @@
 @import "../../styles/partials/mixins";
 .insights {
-  margin: 3rem;
+  margin: 2rem 1rem;
+  @include tablet{
+    margin: 3rem 2rem;
+  }
   &__charts {
     display: flex;
     flex-direction: column;
@@ -18,15 +21,21 @@
     width: 100% !important;
     height: auto !important;
   }
+  &__date{
+    margin-top:16px;
+  }
+  &__heading{
+    padding: 1.5rem 0 1rem 0;
+  }
 }
 
 .date-picker {
   display: flex;
   flex-direction: column;
+  margin-top:8px;
+  
   @include tablet {
-    margin-left: 4px;
-  }
-  @include desktop {
+    padding-right: 8px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -34,5 +43,6 @@
 .react-datepicker {
   &-wrapper {
     margin-bottom: 1rem;
+    margin-left: 1rem;
   }
 }

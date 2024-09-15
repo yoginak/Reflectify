@@ -132,6 +132,7 @@ export default function Insights() {
         ranges.
       </p>
       <div className="date-picker">
+        <div className="insights__date">
         <label>Start Date: </label>
         <DatePicker
           selected={startDate}
@@ -140,6 +141,8 @@ export default function Insights() {
           startDate={startDate}
           endDate={endDate}
         />
+        </div>
+        <div className="insights__date">
         <label>End Date: </label>
         <DatePicker
           selected={endDate}
@@ -149,6 +152,7 @@ export default function Insights() {
           endDate={endDate}
           minDate={startDate}
         />
+        </div>
       </div>
       <div className="chart-container insights__charts">
         <div className="insights__charts-bar">
