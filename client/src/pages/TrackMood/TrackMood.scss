@@ -4,12 +4,13 @@ body{
    background: linear-gradient(to right, #fff3e1, #e1fcff);
 }
 
-  .container {
+.emoji-container {
+    animation-name: pulse-track;
     width: 100%;
     padding: 50px 10px;
    
   }
-  
+   
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -210,16 +211,16 @@ body{
   }
   
   .love:hover .heart-eye {
-    animation-name: pulse;
+    animation-name: pulse-track;
     animation-iteration-count: infinite;
     animation-duration: 1s;
   }
   
   .love:hover .heart-eye:last-child {
-    animation-name: pulse-right;
+    animation-name: pulse-right-track;
   }
   
-  @keyframes pulse {
+  @keyframes pulse-track {
     30% {
       transform: scale(1.1, 1.1) rotate(-15deg);
     }
@@ -228,7 +229,7 @@ body{
     }
   }
   
-  @keyframes pulse-right {
+  @keyframes pulse-right-track {
     30% {
       transform: scale(1.1, 1.1) rotate(15deg);
     }

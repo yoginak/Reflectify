@@ -67,7 +67,7 @@ export default function TrackMood() {
         />
       </div>
       
-      <div className="container">
+      <div className="emoji-container">
         <div className="wrapper">
           <div className="positive">
             {/* Loved Mood */}
