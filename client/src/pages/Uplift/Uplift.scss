@@ -1,11 +1,11 @@
-
-
-//Animation code
+.uplift{
+    margin: 3rem 2rem;
+}
 
 .breathing-container {
     animation-name: breathing;
   } 
-  
+
 .container {
     margin:2rem auto;
     width: 300px;
@@ -90,7 +90,7 @@
         content: 'breathe in';
     }
     22%, 58% {
-        content: 'hold';
+        content: 'hold breath';
     }
     59%, 100% {
         content: 'breathe out';
