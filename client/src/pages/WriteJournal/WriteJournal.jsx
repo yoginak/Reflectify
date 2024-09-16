@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from 'react';
-import { Card, Row, Col, Form, Button } from "react-bootstrap";
+import { Card, Row, Col, Form, Button, Modal } from "react-bootstrap";
 const WaveRobot = React.lazy(() => import('../../components/Animations/WaveRobot'));
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from 'react-router-dom';
@@ -11,8 +11,13 @@ export default function WriteJournal() {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false); 
+  const [modalMessage, setModalMessage] = useState(''); 
+  const [modalTitle, setModalTitle] = useState('');
   const [successMessage, setSuccessMessage] = useState(null);
   const navigate = useNavigate();
+
+  const handleCloseModal = () => setShowModal(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,6 +26,9 @@ export default function WriteJournal() {
     setSuccessMessage(null); 
 
     if (!title || !content) {
+      setModalTitle('Submission Failed');
+      setModalMessage('Title and content are required');
+      setShowModal(true);
       setError("Title and content are required.");
       setLoading(false);
       return;
@@ -47,12 +55,18 @@ export default function WriteJournal() {
         navigate('/reflect');
       } else {
         setError("Error saving journal entry. Please try again.");
+        setModalTitle('Submission Failed');
+        setModalMessage('"Error saving journal entry. Please try again.');
+        setShowModal(true);     
       }
     } catch (err) {
       if (err.response && err.response.data) {
         setError(err.response.data.message || "Error saving journal entry.");
       } else {
         setError("Failed to save journal entry. Please check the server or network.");
+        setModalTitle('Submission Failed');
+        setModalMessage('Failed to save journal entry. Please check the server or network.');
+        setShowModal(true);      
       }
       console.error("Error during submission:", err); 
     } finally {
@@ -125,6 +139,17 @@ export default function WriteJournal() {
           </Row>
         </Suspense>
       </div>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{modalTitle}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
