@@ -7,12 +7,16 @@ app.use(cors());
 
 import moodRoutes from "./routes/mood-routes.js";
 import journalRoutes from "./routes/journal-routes.js";
+import authRoutes from "./routes/auth-routes.js";
 
 // all mood routes
 app.use("/moods", moodRoutes);
 
 // all journal routes
 app.use("/journal", journalRoutes);
+
+// all auth routes
+app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
