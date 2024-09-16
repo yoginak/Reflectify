@@ -93,19 +93,22 @@ export default function Reflect() {
       </section>
 
       <section className="reflect__section-bottom">
-      <h2 className="reflect__section-header">Journals for {selectedDate.toDateString()}</h2>
-      {journals.length > 0 ? (
-        journals.map((journal) => (
-          <div className="reflect__section-body" key={journal.id}>
-            <h4>{journal.title}</h4>
-            <p>{journal.content}</p>
-            <p>{new Date(journal.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
-          </div>
-        ))
-      ) : (
-        <p>No journals for this date.</p>
-      )}
-      </section>     
+  <h2 className="reflect__section-header">Journals for {selectedDate.toDateString()}</h2>
+  {journals.length > 0 ? (
+    journals.map((journal, index) => (
+      <div
+        className={`reflect__section-body ${index % 2 === 0 ? 'bisque-background' : 'lightblue-background'}`}
+        key={journal.id}
+      >
+        <h4>{journal.title}</h4>
+        <p>{journal.content}</p>
+        <p>{new Date(journal.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+      </div>
+    ))
+  ) : (
+    <p>No journals for this date.</p>
+  )}
+</section>
     </main>
   );
 };

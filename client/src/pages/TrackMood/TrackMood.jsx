@@ -178,7 +178,7 @@ export default function TrackMood() {
       </div>
 
       <div className='button-wrapper'>
-        <Button variant="primary" className='mood-button' onClick={handleSubmit}>
+        <Button variant="dark" className='mood-button' onClick={handleSubmit}>
           Save Mood
         </Button>
       </div>

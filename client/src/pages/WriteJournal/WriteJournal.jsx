@@ -127,7 +127,7 @@ export default function WriteJournal() {
                         onChange={(event) => setContent(event.target.value)}
                       />
                     </Form.Group>
-                    <Button variant="primary" type="submit" disabled={loading}>
+                    <Button variant="dark" type="submit" disabled={loading}>
                       {loading ? "Submitting..." : "Submit"}
                     </Button>
                     {error && <p className='error'>{error}</p>}

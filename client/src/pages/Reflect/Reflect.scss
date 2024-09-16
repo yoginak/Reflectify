@@ -36,12 +36,19 @@
             }
         }
         &-body{
-            border: 1px solid bisque;
+            // border: 1px solid bisque;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 3px bisque;
+    // box-shadow: 0 0 3px bisque;
     margin-bottom: 10px;
         }
     }
 }
 
+.bisque-background {
+    background-color: bisque;
+  }
+  
+  .lightblue-background {
+    background-color: lightblue;
+  }
