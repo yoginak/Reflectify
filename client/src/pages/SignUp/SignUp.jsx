@@ -36,25 +36,30 @@ export default function SignUp() {
 
   const handleRegister = async () => {
     if (!validateForm()) {
-      return; // Prevent form submission if there are validation errors
+      return;
     }
 
     try {
       await axios.post('http://localhost:8080/auth/register', {
-        name:username,
+        name: username,
         email,
         password,
         confirmPassword
       });
       navigate('/auth/login'); // Redirect to login after successful registration
     } catch (error) {
-      console.error('Error registering:', error.response ? error.response.data : error.message);
+      if (error.response && error.response.data) {
+        setErrors({ general: error.response.data.message }); // Set general error message
+      } else {
+        setErrors({ general: 'Error registering user. Please try again.' });
+      }
     }
   };
 
   return (
     <div>
       <h1>Signup</h1>
+      {errors.general && <div style={{ color: 'red' }}>{errors.general}</div>}
       <div>
         <input
           type="text"
@@ -95,4 +100,3 @@ export default function SignUp() {
     </div>
   );
 };
-
