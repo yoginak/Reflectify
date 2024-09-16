@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./TrackMood.scss";
 import { TypeAnimation } from "react-type-animation";
 import { Button, Modal } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function TrackMood() {
@@ -10,6 +11,7 @@ export default function TrackMood() {
   const [showModal, setShowModal] = useState(false); 
   const [modalMessage, setModalMessage] = useState(''); 
   const [modalTitle, setModalTitle] = useState(''); 
+  const navigate = useNavigate();
 
   const handleMoodClick = (mood) => {
     setSelectedMood(mood); 
@@ -37,11 +39,9 @@ export default function TrackMood() {
         }
       });
 
-      if (response.status === 201) {
-        setModalTitle('Mood Saved');
-        setModalMessage('Your mood has been successfully tracked.');
-        setShowModal(true);
-        setSelectedMood(null);  
+      if (response.status === 201) {        
+        setSelectedMood(null);
+        navigate('/reflect');  
       } else {
         setModalTitle('Submission Failed');
         setModalMessage('Failed to update mood, please try again.');

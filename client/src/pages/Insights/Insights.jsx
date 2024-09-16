@@ -64,7 +64,7 @@ export default function Insights() {
   };
 
   const barChartData = {
-    labels: ["Good", "Bad", "Meh", "Rad", "Loved", "Angry"],
+    labels: ["Good😊", "Bad😒", "Meh😐", "Rad😁", "Loved😍", "Angry😡"],
     datasets: [
       {
         label: "Mood Count",

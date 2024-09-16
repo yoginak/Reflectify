@@ -7,6 +7,9 @@
     background-color: #e1fcff;   
   }
   &__body{
-    font-size: 2em;
+    font-size: 1em;
+    @include tablet{
+      font-size: 1.5em;;
+    }
   }
 }

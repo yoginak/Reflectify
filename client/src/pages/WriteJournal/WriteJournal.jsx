@@ -2,6 +2,7 @@ import React, { useState, Suspense } from 'react';
 import { Card, Row, Col, Form, Button } from "react-bootstrap";
 const WaveRobot = React.lazy(() => import('../../components/Animations/WaveRobot'));
 import { TypeAnimation } from "react-type-animation";
+import { useNavigate } from 'react-router-dom';
 import "./WriteJournal.scss";
 import axios from 'axios';
 
@@ -11,6 +12,7 @@ export default function WriteJournal() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ export default function WriteJournal() {
       return;
     }
 
-    const userId = 2; //hardcoded now, will retrieve from props later
+    const userId = 3; //hardcoded now, will retrieve from props later
     const journalData = {
       user_id: userId,  
       title,
@@ -42,6 +44,7 @@ export default function WriteJournal() {
         setSuccessMessage("Journal entry saved successfully.");
         setTitle("");  
         setContent("");
+        navigate('/reflect');
       } else {
         setError("Error saving journal entry. Please try again.");
       }

@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import logo from "../../assets/logos/header_img_logo.png"
-import headerLogo from "../../assets/logos/header-title.png"
+import React, { useState } from "react";
+import logo from "../../assets/logos/header_img_logo.png";
+import headerLogo from "../../assets/logos/header-title.png";
 import "./Header.scss";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Link } from 'react-router-dom';
-import { BsFillJournalBookmarkFill, BsFillEmojiSmileFill, BsArrowUpCircle, BsBarChartFill, BsCalendarCheckFill } from 'react-icons/bs';  
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import { Link } from "react-router-dom";
+import {
+  BsFillJournalBookmarkFill,
+  BsFillEmojiSmileFill,
+  BsArrowUpCircle,
+  BsBarChartFill,
+  BsCalendarCheckFill,
+} from "react-icons/bs";
 
 export default function Header() {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -20,13 +27,17 @@ export default function Header() {
       <Navbar expand={false} className="header-custom">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
-            <img 
-              src={headerLogo} 
-              alt="Reflectify Logo" 
-              style={{ width: '120px', height: 'auto' }}              
+            <img
+              src={headerLogo}
+              alt="Reflectify Logo"
+              style={{ width: "120px", height: "auto" }}
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls={`offcanvasNavbar`} onClick={handleShow}  style={{ color: 'powderblue' }} />
+          <Navbar.Toggle
+            aria-controls={`offcanvasNavbar`}
+            onClick={handleShow}
+            style={{ color: "powderblue" }}
+          />
           <Navbar.Offcanvas
             id={`offcanvasNavbar`}
             show={showOffcanvas}
@@ -36,36 +47,52 @@ export default function Header() {
           >
             <Offcanvas.Header closeButton>
               <Navbar.Brand as={Link} to="/" onClick={handleClose}>
-                <img 
-                  src={logo} 
-                  alt="Reflectify Logo" 
-                  style={{ width: '120px', height: 'auto' }}
+                <img
+                  src={logo}
+                  alt="Reflectify Logo"
+                  style={{ width: "120px", height: "auto" }}
                 />
               </Navbar.Brand>
             </Offcanvas.Header>
-            <Offcanvas.Body className='header__body'>
+            <Offcanvas.Body className="header__body">
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link as={Link} to="/moods" onClick={handleClose}>
-                  <BsFillEmojiSmileFill style={{ marginRight: '8px', color: '#ffcc00' }} />
+                  <BsFillEmojiSmileFill
+                    style={{ marginRight: "8px", color: "#ffcc00" }}
+                  />
                   Track Mood
-                </Nav.Link> 
-                <Nav.Link as={Link} to="/journal" onClick={handleClose}>
-                  <BsFillJournalBookmarkFill style={{ marginRight: '8px' }} />
-                  Write Journal
-                </Nav.Link>  
-                <Nav.Link as={Link} to="/uplift" onClick={handleClose}>
-                  <BsArrowUpCircle style={{ marginRight: '8px' }} />
-                  Uplift
                 </Nav.Link>
-                <Nav.Link as={Link} to="/insights" onClick={handleClose}>
-                  <BsBarChartFill style={{ marginRight: '8px' }} />
-                  Insights
+                <Nav.Link as={Link} to="/journal" onClick={handleClose}>
+                  <BsFillJournalBookmarkFill style={{ marginRight: "8px" }} />
+                  Write Journal
                 </Nav.Link>
                 <Nav.Link as={Link} to="/reflect" onClick={handleClose}>
-                  <BsCalendarCheckFill style={{ marginRight: '8px' }} />
+                  <BsCalendarCheckFill style={{ marginRight: "8px" }} />
                   Reflect
-                </Nav.Link>             
-              </Nav>                
+                </Nav.Link>
+                <Nav.Link as={Link} to="/insights" onClick={handleClose}>
+                  <BsBarChartFill style={{ marginRight: "8px" }} />
+                  Insights
+                </Nav.Link>
+                <Nav.Link as={Link} to="/uplift" onClick={handleClose}>
+                  <BsArrowUpCircle style={{ marginRight: "8px" }} />
+                  Uplift
+                </Nav.Link>
+                {/* <NavDropdown
+                  title={
+                    <>
+                      <BsArrowUpCircle style={{ marginRight: "8px" }} />
+                      Uplift
+                    </>
+                  }
+                  id="nav-dropdown"                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown> */}
+              </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
