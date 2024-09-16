@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./SignUp.scss"
 
 export default function SignUp() {
   const [username, setUsername] = useState('');
@@ -10,12 +11,10 @@ export default function SignUp() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  // Regular expressions for validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
 
-  // Function to validate form
-  const validateForm = () => {
+   const validateForm = () => {
     const newErrors = {};
 
     if (!emailRegex.test(email)) {
@@ -46,10 +45,10 @@ export default function SignUp() {
         password,
         confirmPassword
       });
-      navigate('/auth/login'); // Redirect to login after successful registration
+      navigate('/auth/login'); 
     } catch (error) {
       if (error.response && error.response.data) {
-        setErrors({ general: error.response.data.message }); // Set general error message
+        setErrors({ general: error.response.data.message });
       } else {
         setErrors({ general: 'Error registering user. Please try again.' });
       }
@@ -59,17 +58,23 @@ export default function SignUp() {
   return (
     <div>
       <h1>Signup</h1>
-      {errors.general && <div style={{ color: 'red' }}>{errors.general}</div>}
+      
+      
       <div>
+        <label htmlFor="username">Username:</label>
         <input
+          id="username"
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
+      
       <div>
+        <label htmlFor="email">Email:</label>
         <input
+          id="email"
           type="email"
           placeholder="Email"
           value={email}
@@ -77,18 +82,26 @@ export default function SignUp() {
         />
         {errors.email && <small style={{ color: 'red' }}>{errors.email}</small>}
       </div>
+      
       <div>
+        <label htmlFor="password">Password:</label>
         <input
+          id="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <small>Must be at least 8 characters long, include one capital letter and one symbol.</small>
+        {/* <span className="tooltip" data-tooltip="Passwords must contain atleast 8 characters, one capital letter and a symbol(!@#$%^&*)"> ? </span> */}
+        
+        {/* <small>Must be at least 8 characters long, include one capital letter and one symbol.</small> */}
         {errors.password && <small style={{ color: 'red' }}>{errors.password}</small>}
       </div>
+      
       <div>
+        <label htmlFor="confirmPassword">Confirm Password:</label>
         <input
+          id="confirmPassword"
           type="password"
           placeholder="Confirm Password"
           value={confirmPassword}
@@ -96,7 +109,9 @@ export default function SignUp() {
         />
         {errors.confirmPassword && <small style={{ color: 'red' }}>{errors.confirmPassword}</small>}
       </div>
+      
       <button onClick={handleRegister}>Register</button>
+      {errors.general && <div style={{ color: 'red' }}>{errors.general}</div>}
     </div>
   );
-};
+}
