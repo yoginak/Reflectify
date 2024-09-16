@@ -1,53 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Uplift.scss";
+import Nav from "react-bootstrap/Nav";
+import Mindfulness from "../../components/Mindfulness/Mindfulness";
+import Meditation from "../../components/Meditation/Meditation";
 
 export default function Uplift() {
+  const [activeTab, setActiveTab] = useState("mindfulness");
+
+  const handleSelect = (eventKey) => {
+    setActiveTab(eventKey);
+  };
   return (
-    <section className="uplift">
-      <div className="uplift__animation-wrapper">
-        <div className="uplift__title-wrapper">
-          <h2>4-7-8 Breathing Technique: A Simple Path to Deep Relaxation</h2>
-          <p>
-            The 4-7-8 breathing technique, also known as "Relaxing Breath," is a
-            simple yet powerful breathing exercise designed to help calm your
-            nervous system, reduce stress, and promote relaxation. This
-            technique was popularized by Dr. Andrew Weil, a pioneer in
-            integrative medicine. It combines the natural power of deep,
-            rhythmic breathing with a structured pattern that can be practiced
-            anywhere, anytime.
-          </p>
-          <h4>How to Do It:</h4>
-          <p>1. Inhale gently through your nose for 4 seconds.</p>
-          <p>2. Hold your breath for 7 seconds.</p>
-          <p>3. Exhale fully through your mouth for 8 seconds.</p>
-          <p>4. Repeat the cycle for 4-8 rounds.</p>
-        </div>
-        <div className="uplift__animation">
-          <div className="container breathing-container">
-            <div className="circle"></div>
-          </div>
-        </div>
+    <>
+      <Nav
+        justify 
+        variant="tabs"
+        defaultActiveKey="mindfulness"
+        onSelect={handleSelect}
+      >
+        <Nav.Item>
+          <Nav.Link className="uplift__tab" eventKey="mindfulness">Mindfulness</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link className="uplift__tab" eventKey="guided-meditation">Meditation</Nav.Link>
+        </Nav.Item>
+      </Nav>
+
+      <div>
+        {activeTab === "mindfulness" && <Mindfulness />}
+        {activeTab === "guided-meditation" && <Meditation />}
       </div>
-      <div className="uplift__title-wrapper">
-        <h2>Journey to Tranquility: Guided Meditation Audios</h2>
-        <p>
-          Embark on a serene journey with our collection of guided meditation
-          audios. Let soothing voices and calming music guide you through
-          moments of deep relaxation and self-discovery. Perfect for easing
-          stress, finding focus, or simply escaping the hustle of daily life,
-          our meditations offer a sanctuary of peace whenever you need it. Dive
-          in and transform your moments of stillness into a path of inner
-          harmony.
-        </p>
-      </div>
-      <div className="uplift__audio">
-        <iframe
-          width="100%"
-          height="450"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/328705064&color=%23d4c6a1&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-        ></iframe>
-      </div>
-    </section>
+    </>
   );
 }
