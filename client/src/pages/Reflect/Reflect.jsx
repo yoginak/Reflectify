@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'; 
+import { useAuth } from "../../contexts/AuthContext";
 import axios from 'axios';
 import "./Reflect.scss";
 
@@ -9,7 +10,7 @@ export default function Reflect() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [journals, setJournals] = useState([]);
   const [moods, setMoods] = useState([]);
-  const userId =3;
+  const { userId } = useAuth();
 
   function setMoodEmoji(mood){
     let moodEmoji = null;

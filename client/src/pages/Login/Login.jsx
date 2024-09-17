@@ -7,7 +7,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { setToken } = useAuth(); // Update token in AuthContext
+    const { saveToken } = useAuth(); 
   
     const handleLogin = async () => {
       try {
@@ -15,8 +15,10 @@ export default function Login() {
           email,
           password
         });
-        setToken(response.data.token); // Save token to context
-        navigate('/moods'); // Redirect to Track Mood page after successful login
+        const { token, userId } = response.data;
+        saveToken(token, userId); 
+        console.log(response.data)
+        navigate('/moods'); 
       } catch (error) {
         console.error('Error logging in:', error.response ? error.response.data : error.message);
       }

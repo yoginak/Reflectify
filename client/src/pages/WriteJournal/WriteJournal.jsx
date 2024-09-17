@@ -3,6 +3,7 @@ import { Card, Row, Col, Form, Button, Modal } from "react-bootstrap";
 const WaveRobot = React.lazy(() => import('../../components/Animations/WaveRobot'));
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../contexts/AuthContext";
 import "./WriteJournal.scss";
 import axios from 'axios';
 
@@ -16,6 +17,7 @@ export default function WriteJournal() {
   const [modalTitle, setModalTitle] = useState('');
   const [successMessage, setSuccessMessage] = useState(null);
   const navigate = useNavigate();
+  const { userId } = useAuth();
 
   const handleCloseModal = () => setShowModal(false);
 
@@ -34,7 +36,6 @@ export default function WriteJournal() {
       return;
     }
 
-    const userId = 3; //hardcoded now, will retrieve from props later
     const journalData = {
       user_id: userId,  
       title,

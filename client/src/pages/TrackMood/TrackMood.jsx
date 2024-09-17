@@ -3,15 +3,18 @@ import "./TrackMood.scss";
 import { TypeAnimation } from "react-type-animation";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../contexts/AuthContext";
 import axios from 'axios';
 
 export default function TrackMood() {
-  const userId = 3; 
   const [selectedMood, setSelectedMood] = useState(null); 
   const [showModal, setShowModal] = useState(false); 
   const [modalMessage, setModalMessage] = useState(''); 
   const [modalTitle, setModalTitle] = useState(''); 
   const navigate = useNavigate();
+  const { userId } = useAuth();
+
+  console.log(userId)
 
   const handleMoodClick = (mood) => {
     setSelectedMood(mood); 

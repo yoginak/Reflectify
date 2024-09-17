@@ -16,8 +16,8 @@ import SignUp from './pages/SignUp/SignUp';
 function App() {
 
   const ProtectedRoute = ({ element, ...rest }) => {
-    const { token } = useAuth(); // Get token from context
-  
+    const { token, userId } = useAuth(); // Get token from context
+    console.log(userId)
     return token ? element : <Navigate to="/auth/login" replace />;
   };
  

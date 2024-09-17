@@ -14,6 +14,7 @@ import {
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Insights.scss";
+import { useAuth } from "../../contexts/AuthContext";
 
 ChartJS.register(
   CategoryScale,
@@ -29,7 +30,7 @@ export default function Insights() {
   const [moodData, setMoodData] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const userId = 3;
+  const { userId } = useAuth();
 
   const fetchMoodData = async () => {
     try {
