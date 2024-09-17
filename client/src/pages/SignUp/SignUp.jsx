@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './SignUp.scss';
+import React, { useState } from "react";
+import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./SignUp.scss";
 
 export default function SignUp() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
@@ -19,15 +19,16 @@ export default function SignUp() {
     const newErrors = {};
 
     if (!emailRegex.test(email)) {
-      newErrors.email = 'Please enter a valid email address.';
+      newErrors.email = "Please enter a valid email address.";
     }
 
     if (!passwordRegex.test(password)) {
-      newErrors.password = 'Password must be at least 8 characters long, include one capital letter and one symbol.';
+      newErrors.password =
+        "Password must be at least 8 characters long, include one capital letter and one symbol.";
     }
 
     if (password !== confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match.';
+      newErrors.confirmPassword = "Passwords do not match.";
     }
 
     setErrors(newErrors);
@@ -40,18 +41,18 @@ export default function SignUp() {
     }
 
     try {
-      await axios.post('http://localhost:8080/auth/register', {
+      await axios.post("http://localhost:8080/auth/register", {
         name: username,
         email,
         password,
-        confirmPassword
+        confirmPassword,
       });
-      navigate('/auth/login'); 
+      navigate("/auth/login");
     } catch (error) {
       if (error.response && error.response.data) {
         setErrors({ general: error.response.data.message });
       } else {
-        setErrors({ general: 'Error registering user. Please try again.' });
+        setErrors({ general: "Error registering user. Please try again." });
       }
     }
   };
@@ -67,53 +68,79 @@ export default function SignUp() {
               <input
                 id="username"
                 type="text"
-                className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+                className={`form-control ${
+                  errors.username ? "is-invalid" : ""
+                }`}
                 placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
-              {errors.username && <div className="invalid-feedback">{errors.username}</div>}
+              {errors.username && (
+                <div className="invalid-feedback">{errors.username}</div>
+              )}
             </div>
             <div className="form-group mb-3">
               <label htmlFor="email">Email:</label>
               <input
                 id="email"
                 type="email"
-                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                className={`form-control ${errors.email ? "is-invalid" : ""}`}
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+              {errors.email && (
+                <div className="invalid-feedback">{errors.email}</div>
+              )}
             </div>
             <div className="form-group mb-3">
               <label htmlFor="password">Password:</label>
               <input
                 id="password"
                 type="password"
-                className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                className={`form-control ${
+                  errors.password ? "is-invalid" : ""
+                }`}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+              {errors.password && (
+                <div className="invalid-feedback">{errors.password}</div>
+              )}
             </div>
             <div className="form-group mb-3">
               <label htmlFor="confirmPassword">Confirm Password:</label>
               <input
                 id="confirmPassword"
                 type="password"
-                className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
+                className={`form-control ${
+                  errors.confirmPassword ? "is-invalid" : ""
+                }`}
                 placeholder="Re-enter your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              {errors.confirmPassword && <div className="invalid-feedback">{errors.confirmPassword}</div>}
+              {errors.confirmPassword && (
+                <div className="invalid-feedback">{errors.confirmPassword}</div>
+              )}
             </div>
-            {errors.general && <div className="alert alert-danger" role="alert">{errors.general}</div>}          
+            {errors.general && (
+              <div className="alert alert-danger" role="alert">
+                {errors.general}
+              </div>
+            )}
             <button className="btn btn-primary w-100" onClick={handleRegister}>
               Sign up
             </button>
+            <div className="form-group mb-3">
+              <p className="mb-0  text-center">
+                Already have an account?{" "}
+                <NavLink to="/auth/login" className="fw-bold">
+                  Sign In
+                </NavLink>
+              </p>
+            </div>
           </div>
         </div>
       </div>

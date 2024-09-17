@@ -18,7 +18,7 @@ export default function Login() {
     }
 
     if (!password) {
-      newErrors.password = "Enter a valid password";
+      newErrors.password = "Please enter a valid password";
     }
 
     setErrors(newErrors);

@@ -10,10 +10,10 @@ import feature2 from "../../assets/images/Reflect_img.svg";
 import feature3 from "../../assets/images/stats.svg";
 import feature4 from "../../assets/images/Meditation_img.svg";
 import Testimonials from "../../components/Testimonials/Testimonials";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const features = document.querySelectorAll(".features__type");
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -21,10 +21,10 @@ export default function Home() {
       }
     });
   });
-
   features.forEach((feature) => {
     observer.observe(feature);
   });
+
   return (
     <div>
       <section className="hero">
@@ -36,6 +36,9 @@ export default function Home() {
           <div className="hero__subtitle-wrapper">
             <h3>Discover Your Inner Self,</h3>
             <h3> One Day at a Time</h3>
+            <Link to ="/auth/register">
+            <button className="btn btn-outline-info mt-3" >Get Started</button>
+            </Link>
           </div>
         </div>
       </section>
