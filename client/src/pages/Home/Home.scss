@@ -1,4 +1,5 @@
 @import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
 .hero {
   display: flex;
   align-items: center;
@@ -56,9 +57,9 @@
 }
 
 .features{
-padding: 1rem;
+padding: 1rem 1rem 5rem 1rem;
 //background-color:darksalmon;
-background-color: #e1fcff;
+background-color: #ebebeb;
 text-align: center;
     @include tablet{
         display: flex;
@@ -74,10 +75,10 @@ text-align: center;
         display: flex;
         justify-content: center;
         //background-color: #ffe4e1;
-        background: linear-gradient(to bottom, white, #e1fcff);
+        background: linear-gradient(to bottom, white, #ebebeb);
         font-weight: 700;
         height: 60px;
-        align-items: center;
+        // align-items: flex-end;
         @include desktop{
           padding-top: 6rem;
         }

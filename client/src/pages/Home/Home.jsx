@@ -1,10 +1,14 @@
 import React from "react";
 import Hero from "../../assets/images/HomeHero.jpg";
 import "./Home.scss";
-import feature1 from "../../assets/images/typing.svg";
-import feature2 from "../../assets/images/calendar.svg";
-import feature3 from "../../assets/images/reading.svg";
-import feature4 from "../../assets/images/meditation.svg";
+// import feature1 from "../../assets/images/typing.svg";
+// import feature2 from "../../assets/images/calendar.svg";
+// import feature3 from "../../assets/images/reading.svg";
+// import feature4 from "../../assets/images/meditation.svg";
+import feature1 from "../../assets/images/journal.svg";
+import feature2 from "../../assets/images/Reflect_img.svg";
+import feature3 from "../../assets/images/stats.svg";
+import feature4 from "../../assets/images/Meditation_img.svg";
 import Testimonials from "../../components/Testimonials/Testimonials";
 
 export default function Home() {

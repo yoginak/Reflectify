@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/logos/header_img_logo.png";
-import headerLogo from "../../assets/logos/header-title.png";
+import headerLogo from "../../assets/logos/header_title_processed.png";
 import "./Header.scss";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -35,7 +35,7 @@ export default function Header() {
           <Navbar.Toggle
             aria-controls={`offcanvasNavbar`}
             onClick={handleShow}
-            style={{ color: "powderblue" }}
+            style={{ color: "#41555e" }}
           />
           <Navbar.Offcanvas
             id={`offcanvasNavbar`}

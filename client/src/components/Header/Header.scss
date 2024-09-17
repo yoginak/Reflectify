@@ -2,9 +2,10 @@
 
 .header{
 &-custom {
-    background-color: white; 
+   // background-color: white; 
     color: black;  
-    background-color: #e1fcff;   
+    //background-color: #37474F;   
+    background: linear-gradient(	90deg, #667eea 0%, #764ba2 100%)
   }
   &__body{
     font-size: 1em;
