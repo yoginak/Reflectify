@@ -38,7 +38,7 @@ export default function Header() {
           <Navbar.Toggle
             aria-controls={`offcanvasNavbar`}
             onClick={handleShow}
-            style={{ color: "#41555e" }}
+            style={{ color: "white" }}
           />
           <Navbar.Offcanvas
             id={`offcanvasNavbar`}

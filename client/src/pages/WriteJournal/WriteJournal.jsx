@@ -128,11 +128,9 @@ export default function WriteJournal() {
                         onChange={(event) => setContent(event.target.value)}
                       />
                     </Form.Group>
-                    <Button variant="dark" type="submit" disabled={loading}>
+                    <Button variant="dark" className='journal__button' type="submit" disabled={loading}>
                       {loading ? "Submitting..." : "Submit"}
-                    </Button>
-                    {error && <p className='error'>{error}</p>}
-                    {successMessage && <p className='success'>{successMessage}</p>}
+                    </Button>                    
                   </Form>
                 </Card.Body>
               </Card>
@@ -146,7 +144,7 @@ export default function WriteJournal() {
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button variant="secondary" className='modal-button' onClick={handleCloseModal}>
             Close
           </Button>
         </Modal.Footer>

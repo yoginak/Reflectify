@@ -17,3 +17,10 @@
     @content;
   }
 }
+
+@mixin btn-styling{
+  background: linear-gradient(	90deg, #667eea 0%, #764ba2 100%);
+  color: $text-white;
+  border-radius: 2rem !important;
+  border-color: $header-purple !important;
+}

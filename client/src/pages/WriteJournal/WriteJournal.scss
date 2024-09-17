@@ -1,29 +1,39 @@
 @import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
 
-  .shadow{
-    margin: 1.5rem;
-    @include tablet{
+.shadow {
+  margin: 1.5rem;
+  @include tablet {
     margin: 3rem;
-    }
   }
+}
 
-  .journal__header{
-    font-Size: 2.5em;
+.journal {
+  &__header {
+    font-size: 2.5em;
     display: inline-block;
-    margin:10px;
+    margin: 10px;
   }
-
-  .error{
-    color:red;
+  &__button {
+    @include btn-styling;
   }
+}
 
-  .success{
-    color: green;
-  }
+.error {
+  color: $error-red;
+}
 
-  .animation{
-    width:100vh;
-    @include tablet{
+.success {
+  color: $success-green;
+}
+
+.animation {
+  width: 100vh;
+  @include tablet {
     width: 35%;
-    }
   }
+}
+
+.modal-button{
+  @include btn-styling;
+}

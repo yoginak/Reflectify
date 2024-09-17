@@ -5,10 +5,10 @@ import "./Home.scss";
 // import feature2 from "../../assets/images/calendar.svg";
 // import feature3 from "../../assets/images/reading.svg";
 // import feature4 from "../../assets/images/meditation.svg";
-import feature1 from "../../assets/images/journal.svg";
+import feature1 from "../../assets/images/Startup.svg";
 import feature2 from "../../assets/images/Reflect_img.svg";
-import feature3 from "../../assets/images/stats.svg";
-import feature4 from "../../assets/images/Meditation_img.svg";
+import feature3 from "../../assets/images/Analysis-amico.svg";
+import feature4 from "../../assets/images/Breathing.svg";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import { Link } from "react-router-dom";
 
@@ -86,8 +86,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <Testimonials />
+      <footer className="footer">
+        <h6 className="footer__text">Reflectify© 2024</h6>
+      </footer>
     </div>
   );
 }

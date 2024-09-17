@@ -49,6 +49,17 @@
   }
 }
 
+.footer{
+display: flex;
+justify-content: flex-end;
+align-items: baseline;
+background-color: lightgray;
+&__text{
+  color :white;
+  padding: .5rem;
+}
+}
+
 .features{
 padding: 1rem 1rem 5rem 1rem;
 text-align: center;
@@ -73,19 +84,19 @@ text-align: center;
       flex-direction: column;
       align-items: center;
       &-1 {
-        background-color: $yellow;
+        background-color: $salmon;
       }
       
       &-2 {
-        background-color: $purple;
+        background-color: $green;
       }
       
       &-3 {
-        background-color: $blue;
+        background-color: $purple;
       }
       
       &-4 {
-        background-color: $green;
+        background-color: $yellow;
       }
     }
 }

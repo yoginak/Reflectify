@@ -190,7 +190,7 @@ export default function TrackMood() {
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button variant="secondary" className='modal-button' onClick={handleCloseModal}>
             Close
           </Button>
         </Modal.Footer>
