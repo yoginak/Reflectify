@@ -134,7 +134,7 @@ export default function Insights() {
       </p>
       <div className="date-picker">
         <div className="insights__date">
-        <label>Start Date: </label>
+        <label className="insights__date-label">Start Date: </label>
         <DatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
@@ -144,7 +144,7 @@ export default function Insights() {
         />
         </div>
         <div className="insights__date">
-        <label>End Date: </label>
+        <label className="insights__date-label">End Date: </label>
         <DatePicker
           selected={endDate}
           onChange={(date) => setEndDate(date)}

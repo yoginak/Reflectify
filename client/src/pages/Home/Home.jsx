@@ -37,7 +37,7 @@ export default function Home() {
             <h3>Discover Your Inner Self,</h3>
             <h3> One Day at a Time</h3>
             <Link to ="/auth/register">
-            <button className="btn btn-outline-info mt-3" >Get Started</button>
+            <button className="btn btn-outline-info mt-3 mb-3" >Get Started</button>
             </Link>
           </div>
         </div>

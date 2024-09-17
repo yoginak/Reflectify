@@ -22,7 +22,10 @@
     height: auto !important;
   }
   &__date{
-    margin-top:16px;
+    margin-top:1rem;
+    &-label{
+      margin-right:1rem;
+    }
   }
   &__heading{
     padding: 1.5rem 0 1rem 0;
@@ -33,10 +36,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top:8px;
+  margin-top:1.5rem;
   
   @include tablet {
-    padding-right: 8px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -46,4 +48,10 @@
     margin-bottom: 1rem;
     margin-left: 1rem;
   }
+}
+
+.date-picker input{
+  border:.0938rem solid #1a1a1a !important;
+  border-radius: .25rem;
+  padding: .25rem;
 }

@@ -5,10 +5,7 @@
   align-items: center;
   flex-direction: column-reverse;
   background-color: white;
-  height: 65vh;
-  @include tablet{
-    height:35vh;
-  } 
+  padding-top: 3rem;
   @include desktop{
     height:auto !important;
   }   
@@ -35,10 +32,7 @@
     &-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      @include tablet {
-       // width: 40%;
-      }
+      align-items: center;     
       @include desktop {
         width: 30%;
       }
@@ -71,10 +65,10 @@ text-align: center;
       flex: 1;
       margin: 1rem;
       padding: 1.5rem;
-      border-radius: 8px;
+      border-radius: .5rem;
       color: white;
       text-align: left;
-      box-shadow:  0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow:  0 .25rem .625rem rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -110,7 +104,7 @@ text-align: center;
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem);
   }
   100% {
     transform: translateY(0);
@@ -119,13 +113,13 @@ text-align: center;
 
 @keyframes slideLeftRight {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem);
   }
   50% {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem);
   }
 }
 
