@@ -6,7 +6,7 @@
     animation-name: breathing;
   } 
 
-.container {
+.breathing-container {
     margin:2rem auto;
     width: 300px;
     height: 300px;
@@ -20,7 +20,7 @@
     z-index: -1;
 }
 
-.container:after {
+.breathing-container:after {
     content: 'breathe in';
     position: absolute;
     color: rgba(255, 255, 255, .7);
@@ -36,7 +36,7 @@
     animation-timing-function: ease-in-out;
 }
 
-.container:before {
+.breathing-container:before {
     content: '';
     width: 16px;
     height: 50%;

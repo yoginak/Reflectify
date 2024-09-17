@@ -23,7 +23,7 @@ export default function Mindfulness() {
           <p>4. Repeat the cycle for 4-8 rounds.</p>
         </div>
         <div className="mindfulness__animation">
-          <div className="container breathing-container">
+          <div className="breathing-container">
             <div className="circle"></div>
           </div>
         </div>

@@ -14,8 +14,6 @@ export default function TrackMood() {
   const navigate = useNavigate();
   const { userId } = useAuth();
 
-  console.log(userId)
-
   const handleMoodClick = (mood) => {
     setSelectedMood(mood); 
   };
