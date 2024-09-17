@@ -8,14 +8,13 @@
   height: 55vh;
   @include tablet{
     height:35vh;
-  }
+  } 
   @include desktop{
-    height: auto;
-  }
+    height:auto !important;
+  }   
   &__img {
     width: 90%;
   }
-
   @include tablet {
     display: flex;
     flex-direction: row;
@@ -38,7 +37,7 @@
       flex-direction: column;
       align-items: center;
       @include tablet {
-        width: 40%;
+       // width: 40%;
       }
       @include desktop {
         width: 30%;
@@ -58,7 +57,6 @@
 
 .features{
 padding: 1rem 1rem 5rem 1rem;
-//background-color:darksalmon;
 background-color: #ebebeb;
 text-align: center;
     @include tablet{
@@ -68,19 +66,52 @@ text-align: center;
     &-image{
         &--track{
             width:100%;            
-        }
-        
-    }
-    &-title{
-        display: flex;
-        justify-content: center;
-        //background-color: #ffe4e1;
-        background: linear-gradient(to bottom, white, #ebebeb);
-        font-weight: 700;
-        height: 60px;
-        // align-items: flex-end;
-        @include desktop{
-          padding-top: 6rem;
-        }
-    }
+        }        
+    }   
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftRight {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.features__type h2, .features__type h5 {
+  opacity: 0;
+  animation: fadeInOut 5s ease-in-out infinite;
+}
+
+.features__type img {
+  animation: slideUpDown 5s ease-in-out infinite;
+}
+
+.features__type--slideRight img {
+  animation: slideLeftRight 5s ease-in-out infinite;
 }
