@@ -98,7 +98,7 @@ export default function Reflect() {
   {journals.length > 0 ? (
     journals.map((journal, index) => (
       <div
-        className={`reflect__section-body ${index % 2 === 0 ? 'bisque-background' : 'lightblue-background'}`}
+        className={`reflect__section-body ${index % 2 === 0 ? 'primary-background' : 'alternate-background'}`}
         key={journal.id}
       >
         <h4>{journal.title}</h4>

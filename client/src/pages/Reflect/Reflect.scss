@@ -1,10 +1,11 @@
 @import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
 
 .reflect{
     display: flex;
     flex-direction: column;
     &__mood{
-        border: 1px solid powderblue;
+        border: 1px solid $header-blue;
         padding: 20px;
         border-radius: 10px;
         &-body{
@@ -32,23 +33,21 @@
             padding-bottom: 1rem;
             padding-left: 10px;
             &--style{
-                color: teal;
+                color: black;
             }
         }
         &-body{
-            // border: 1px solid bisque;
     padding: 20px;
     border-radius: 10px;
-    // box-shadow: 0 0 3px bisque;
     margin-bottom: 10px;
         }
     }
 }
 
-.bisque-background {
-    background-color: bisque;
+.primary-background {
+    background-color: $background-lavendar;
   }
   
-  .lightblue-background {
-    background-color: lightblue;
+  .alternate-background {
+    background-color: $background-linen;
   }
