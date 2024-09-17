@@ -57,7 +57,6 @@
 
 .features{
 padding: 1rem 1rem 5rem 1rem;
-background-color: #ebebeb;
 text-align: center;
     @include tablet{
         display: flex;
@@ -68,6 +67,33 @@ text-align: center;
             width:100%;            
         }        
     }   
+    &__card{
+      flex: 1;
+      margin: 1rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      color: white;
+      text-align: left;
+      box-shadow:  0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-1 {
+        background-color: $yellow;
+      }
+      
+      &-2 {
+        background-color: $purple;
+      }
+      
+      &-3 {
+        background-color: $blue;
+      }
+      
+      &-4 {
+        background-color: $green;
+      }
+    }
 }
 
 @keyframes fadeInOut {
