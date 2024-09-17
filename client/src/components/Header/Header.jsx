@@ -7,12 +7,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import {
   BsFillJournalBookmarkFill,
   BsFillEmojiSmileFill,
   BsArrowUpCircle,
   BsBarChartFill,
   BsCalendarCheckFill,
+  BsBoxArrowInRight
 } from "react-icons/bs";
 
 export default function Header() {
@@ -20,6 +22,7 @@ export default function Header() {
 
   const handleClose = () => setShowOffcanvas(false);
   const handleShow = () => setShowOffcanvas(true);
+  const { logout } = useAuth();
 
   return (
     <>
@@ -76,6 +79,10 @@ export default function Header() {
                 <Nav.Link as={Link} to="/uplift" onClick={handleClose}>
                   <BsArrowUpCircle style={{ marginRight: "8px" }} />
                   Uplift
+                </Nav.Link>
+                <Nav.Link onClick={() => { logout(); handleClose(); }}>
+                  <BsBoxArrowInRight style={{ marginRight: "8px" }} />
+                  Logout
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>
