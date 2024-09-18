@@ -14,7 +14,8 @@ import {
   BsArrowUpCircle,
   BsBarChartFill,
   BsCalendarCheckFill,
-  BsBoxArrowInRight
+  BsBoxArrowInRight,
+  BsFillChatSquareHeartFill
 } from "react-icons/bs";
 
 export default function Header() {
@@ -75,6 +76,10 @@ export default function Header() {
                 <Nav.Link as={Link} to="/trends" onClick={handleClose}>
                   <BsBarChartFill style={{ marginRight: "8px" }} />
                   Trends
+                </Nav.Link>                
+                <Nav.Link as={Link} to="/insights" onClick={handleClose}>
+                  <BsFillChatSquareHeartFill style={{ marginRight: "8px" }} />
+                  Insights
                 </Nav.Link>
                 <Nav.Link as={Link} to="/uplift" onClick={handleClose}>
                   <BsArrowUpCircle style={{ marginRight: "8px" }} />

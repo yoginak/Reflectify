@@ -58,7 +58,8 @@ export default function Insights() {
 
   return (
     <div className="container mt-5">
-      <h2>Mood Insights</h2>
+      <h2>Your Emotional Wellness Check-In</h2>
+      <p>Share how you've been feeling lately, and we'll offer AI-driven insights and suggestions to enhance your mood and mental balance.</p>
       <form>
         <div className="form-group">
           <label>How have you been feeling emotionally?</label>
