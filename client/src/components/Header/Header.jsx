@@ -72,9 +72,9 @@ export default function Header() {
                   <BsCalendarCheckFill style={{ marginRight: "8px" }} />
                   Reflect
                 </Nav.Link>
-                <Nav.Link as={Link} to="/insights" onClick={handleClose}>
+                <Nav.Link as={Link} to="/trends" onClick={handleClose}>
                   <BsBarChartFill style={{ marginRight: "8px" }} />
-                  Insights
+                  Trends
                 </Nav.Link>
                 <Nav.Link as={Link} to="/uplift" onClick={handleClose}>
                   <BsArrowUpCircle style={{ marginRight: "8px" }} />
