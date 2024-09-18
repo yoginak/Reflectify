@@ -7,6 +7,6 @@ router.route("/getMoodInsights")
 .post(openApiController.getMoodInsights);
 
 router.route("/getTherapistInsights")
-.post(openApiController.getMoodInsights);
+.post(openApiController.getTherapistInsights);
 
 export default router;
