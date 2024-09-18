@@ -1,0 +1,7 @@
+@import "../../styles/partials/mixins";
+
+.insights{
+    &__button{
+        @include btn-styling;
+    }
+}
