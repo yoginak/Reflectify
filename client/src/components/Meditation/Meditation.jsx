@@ -1,19 +1,21 @@
-import React from 'react';
-import "./Meditation.scss"
+import React from "react";
+import "./Meditation.scss";
 
 export default function Meditation() {
   return (
     <section className="meditation">
-       <div className="meditation__title-wrapper">
-        <h2 className="meditation__title">Guided Meditation: Journey to Tranquility</h2>
+      <div className="meditation__title-wrapper">
+        <h2 className="meditation__title">
+          Guided Meditation: Journey to Tranquility
+        </h2>
         <p className="meditation__subtitle">
-          Embark on a serene journey with our collection of guided meditation
-          audios. Let soothing voices and calming music guide you through
-          moments of deep relaxation and self-discovery. Perfect for easing
-          stress, finding focus, or simply escaping the hustle of daily life,
-          our meditations offer a sanctuary of peace whenever you need it. Dive
-          in and transform your moments of stillness into a path of inner
-          harmony.
+          Embark on a peaceful journey with our curated collection of guided meditation audios. 🎧✨<br/>
+          Let soothing voices and calming music lead you to deep relaxation and
+          self-discovery. Perfect for reducing stress, enhancing focus, or
+          escaping daily life, our meditations provide a sanctuary of
+          tranquility whenever you need it. 🌿🧘‍♀️<br/>
+          Dive in and transform your
+          stillness into inner harmony. 🌈💖
         </p>
       </div>
       <div className="meditation__audio">
@@ -25,5 +27,5 @@ export default function Meditation() {
         ></iframe>
       </div>
     </section>
-  )
+  );
 }

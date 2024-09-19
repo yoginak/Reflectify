@@ -10,7 +10,7 @@ export default function Mindfulness() {
           <p>
             Discover the calming power of the 4-7-8 breathing exercise. This
             simple method, popularized by Dr. Andrew Weil, helps soothe your
-            nervous system, ease stress, and promote relaxation.
+            nervous system, ease stress, and promote relaxation. 🧘‍♀️
           </p>
           <h4>How to Do It:</h4>
           <p>1. Inhale through your nose for 4 seconds.</p>
@@ -18,7 +18,7 @@ export default function Mindfulness() {
           <p>3. Exhale through your mouth for 8 seconds.</p>
           <p>4. Repeat the cycle for 4-8 rounds.</p>
           <p>
-            Sync your inhalations, pauses, and exhalations with the visual cue<br/> 
+            Sync your inhalations, pauses, and exhalations with the visual cue ✨<br/> 
             embrace the soothing rhythm and let tranquility take over.🌿
           </p>
         </div>

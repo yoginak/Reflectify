@@ -1,0 +1,148 @@
+// Home Page Animations
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftRight {
+  0% {
+    transform: translateY(-1.25rem);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1.25rem);
+  }
+}
+
+
+//Track Mood Page Animations
+
+@keyframes pulse-track {
+  30% {
+    transform: scale(1.1, 1.1) rotate(-15deg);
+  }
+  70% {
+    transform: scale(1, 1) rotate(-15deg);
+  }
+}
+
+@keyframes pulse-right-track {
+  30% {
+    transform: scale(1.1, 1.1) rotate(15deg);
+  }
+  70% {
+    transform: scale(1, 1) rotate(15deg);
+  }
+}
+
+@keyframes fuming {
+  10% {
+    transform: translate(-5px);
+  }
+  15% {
+    transform: translate(5px);
+  }
+  20% {
+    transform: translate(-5px);
+  }
+  25% {
+    transform: translate(5px);
+  }
+  30% {
+    transform: translate(-5px);
+  }
+  35% {
+    transform: translate(5px);
+  }
+  40% {
+    transform: translate(-5px);
+  }
+  45% {
+    transform: translate(5px);
+  }
+  50% {
+    transform: translate(0);
+  }
+}
+
+
+@keyframes blink {
+  10% {
+    height: 11px;
+    top: 32px;
+  }
+  30% {
+    height: 1px;
+    top: 37px;
+  }
+  50% {
+    height: 11px;
+    top: 32px;
+  }
+}
+
+//Mindfulness Component Animations
+
+@keyframes text {
+  0%,
+  21% {
+    content: "breathe in";
+  }
+  22%,
+  58% {
+    content: "hold breath";
+  }
+  59%,
+  100% {
+    content: "breathe out";
+  }
+}
+
+@keyframes breathing {
+  0% {
+    transform: scale(0.6);
+  }
+  21% {
+    transform: scale(1);
+  }
+  58% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.6);
+  }
+}
+
+@keyframes breathing-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  21% {
+    transform: rotate(180deg);
+  }
+  58% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

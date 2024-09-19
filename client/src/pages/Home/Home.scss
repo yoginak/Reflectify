@@ -1,5 +1,7 @@
 @import "../../styles/partials/mixins";
 @import "../../styles/partials/variables";
+@import "../../styles/partials/animations";
+
 .hero {
   display: flex;
   align-items: center;
@@ -97,39 +99,6 @@ text-align: center;
         background-color: $yellow;
       }
     }
-}
-
-@keyframes fadeInOut {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUpDown {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-1.25rem);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideLeftRight {
-  0% {
-    transform: translateY(-1.25rem);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-1.25rem);
-  }
 }
 
 .features__type h2, .features__type h5 {
