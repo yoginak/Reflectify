@@ -1,11 +1,13 @@
 @import "../../styles/partials/mixins";
 
+.mood-tracker{
+  margin-bottom: 3rem;
+}
 .emoji-container {
     animation-name: pulse-track;
     width: 100%;
     padding: 50px 10px;   
-  }
-   
+  }   
   .wrapper {
     display: flex;
     flex-direction: column;

@@ -88,7 +88,7 @@ export default function Reflect() {
           </div>
         ))
       ) : (
-        <p>No moods for this date.</p>
+        <p className="reflect__message">No moods logged for this date.</p>
       )}
       </div>
       </section>
@@ -107,7 +107,7 @@ export default function Reflect() {
       </div>
     ))
   ) : (
-    <p>No journals for this date.</p>
+    <p className="reflect__message">No journals logged for this date.</p>
   )}
 </section>
     </main>

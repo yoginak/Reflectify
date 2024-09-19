@@ -93,9 +93,9 @@ export default function WriteJournal() {
                 sequence={[
                   "Hey there!",
                   2000,
-                  "How did your day go today?",
+                  "What’s on your mind?",
                   2000,
-                  "Tell me about it.",
+                  "Jot it down in your journal!",
                   2000,
                 ]}
                 wrapper="span"

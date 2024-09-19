@@ -28,8 +28,8 @@ ChartJS.register(
 
 export default function Trends() {
   const [moodData, setMoodData] = useState([]);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null); // **Change**
+  const [endDate, setEndDate] = useState(null);     // **Change**
   const { userId } = useAuth();
 
   const fetchMoodData = async () => {
@@ -133,38 +133,47 @@ export default function Trends() {
       </p>
       <div className="date-picker">
         <div className="trends__date">
-        <label className="trends__date-label">Start Date:</label>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          selectsStart
-          startDate={startDate}
-          endDate={endDate}
-        />
+          <label className="trends__date-label">Start Date:</label>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            maxDate={new Date()} 
+            placeholderText="Select start date"
+          />
         </div>
         <div className="trends__date">
-        <label className="trends__date-label">End Date:&nbsp;&nbsp;</label>
-        <DatePicker
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-        />
+          <label className="trends__date-label">End Date:&nbsp;&nbsp;</label>
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            maxDate={new Date()} 
+            placeholderText="Select end date"
+          />
         </div>
       </div>
       <div className="chart-container trends__charts">
-        <div className="trends__charts-bar">
-          <Bar className="trends-bar" data={barChartData} />
-        </div>
-        <div className="trends__charts-pie">
-          <h4 className="trends__charts-title">
-            Emotional Breakdown <p>Positive, Neutral, and Negative Mood Counter</p>
-          </h4>
-          
-          <Pie data={pieChartData} />
-        </div>
+        {startDate && endDate ? ( 
+          <>
+            <div className="trends__charts-bar">
+              <Bar className="trends-bar" data={barChartData} />
+            </div>
+            <div className="trends__charts-pie">
+              <h4 className="trends__charts-title">
+                Emotional Breakdown <p>Positive, Neutral, and Negative Mood Counter</p>
+              </h4>
+              <Pie data={pieChartData} />
+            </div>
+          </>
+        ) : (
+          <p className="trends__message">Please select both start and end dates to view the charts.</p> // **Change**
+        )}
       </div>
     </section>
   );

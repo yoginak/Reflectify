@@ -1,53 +1,57 @@
 @import "../../styles/partials/mixins";
 @import "../../styles/partials/variables";
 
-.reflect{
-    display: flex;
-    flex-direction: column;
-    &__mood{
-        border: 1px solid $header-blue;
-        padding: 20px;
-        border-radius: 10px;
-        &-body{
-            margin-left: 10px;
-        }
+.reflect {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  &__mood {
+    border: 0.0625rem solid $header-blue;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    &-body {
+      margin-left: 0.625rem;
     }
-    &__section{
-        &-top{
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            @include tablet{
-            padding: 3rem 2rem;
-            flex-direction: row;
-            justify-content: space-between;
-            }
-        }
-        &-bottom{
-            padding: 1rem;
-            @include tablet{
-                padding: 1rem 2rem;
-            }
-        }
-        &-header{
-            padding-bottom: 1rem;
-            padding-left: 10px;
-            &--style{
-                color: black;
-            }
-        }
-        &-body{
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-        }
+  }
+  &__section {
+    &-top {
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      @include tablet {
+        padding: 3rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
+    &-bottom {
+      padding: 1rem;
+      @include tablet {
+        padding: 1rem 2rem;
+      }
+    }
+    &-header {
+      padding-bottom: 1rem;
+      padding-left: 0.625rem;
+      &--style {
+        color: black;
+      }
+    }
+    &-body {
+      padding: 1.25rem;
+      border-radius: 0.625rem;
+      margin-bottom: 0.625rem;
+    }
+  }
+  &__message {
+    padding-left: 0.625rem;
+  }
 }
 
 .primary-background {
-    background-color: $background-lavendar;
-  }
-  
-  .alternate-background {
-    background-color: $background-linen;
-  }
+  background-color: $background-lavendar;
+}
+
+.alternate-background {
+  background-color: $background-linen;
+}

@@ -1,16 +1,12 @@
 import React from "react";
 import Hero from "../../assets/images/HomeHero.jpg";
-import "./Home.scss";
-// import feature1 from "../../assets/images/typing.svg";
-// import feature2 from "../../assets/images/calendar.svg";
-// import feature3 from "../../assets/images/reading.svg";
-// import feature4 from "../../assets/images/meditation.svg";
 import feature1 from "../../assets/images/Startup.svg";
 import feature2 from "../../assets/images/Reflect_img.svg";
 import feature3 from "../../assets/images/Analysis-amico.svg";
 import feature4 from "../../assets/images/Breathing.svg";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import { Link } from "react-router-dom";
+import "./Home.scss";
 
 export default function Home() {
   const features = document.querySelectorAll(".features__type");
@@ -28,7 +24,7 @@ export default function Home() {
   return (
     <div>
       <section className="hero">
-        <img className="hero__img" src={Hero} alt="Hero image" />
+        <img className="hero__img" src={Hero} alt="Hero image illustration" />
         <div className="hero__title-wrapper">
           <div className="hero__title">
             <h1>Reflectify</h1>
@@ -47,8 +43,8 @@ export default function Home() {
         <div className="features__type features__type--slideRight">
           <img
             src={feature2}
-            alt="feature_2"
-            className="features-image features-image--track"
+            alt="illustration for track feature"
+            className="features-image features-image--sizing"
           />
           <div className="features__card features__card-1">
             <h2>Track</h2>
@@ -57,7 +53,7 @@ export default function Home() {
         </div>
 
         <div className="features__type">
-          <img src={feature1} alt="Track" className="features-image" />
+          <img src={feature1} alt="illustration for write feature" className="features-image" />
           <div className="features__card features__card-2">
             <h2>Write</h2>
             <h5>Capture your thoughts and reflect with personal journaling.</h5>
@@ -67,8 +63,8 @@ export default function Home() {
         <div className="features__type features__type--slideRight">
           <img
             src={feature3}
-            alt="feature_3"
-            className="features-image features-image--track"
+            alt="illustration insights feature"
+            className="features-image features-image--sizing"
           />
           <div className="features__card features__card-3">
             <h2>Insights</h2>
@@ -77,7 +73,7 @@ export default function Home() {
         </div>
 
         <div className="features__type">
-          <img src={feature4} alt="feature_4" className="features-image" />
+          <img src={feature4} alt="illustration for uplift feature" className="features-image" />
           <div className="features__card features__card-4">
             <h2>Uplift</h2>
             <h5>
@@ -86,7 +82,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <Testimonials />
+      
       <footer className="footer">
         <h6 className="footer__text">Reflectify© 2024</h6>
       </footer>

@@ -27,7 +27,7 @@
   }
 
   &__title {
-    color: #00a7ba;
+    color: $text-blue;
     font-weight: 700;
     &-wrapper {
       display: flex;
@@ -40,7 +40,7 @@
   }
   &__subtitle {
     &-wrapper {
-      color: #fd7e14;
+      color: $text-orange;
       display: inline-flex;
       flex-direction: column;
       align-items: center;
@@ -55,7 +55,6 @@ justify-content: flex-end;
 align-items: baseline;
 background-color: lightgray;
 &__text{
-  color :white;
   padding: .5rem;
 }
 }
@@ -68,7 +67,7 @@ text-align: center;
         align-items: flex-end;
     }
     &-image{
-        &--track{
+        &--sizing{
             width:100%;            
         }        
     }   
@@ -77,7 +76,6 @@ text-align: center;
       margin: 1rem;
       padding: 1.5rem;
       border-radius: .5rem;
-      color: white;
       text-align: left;
       box-shadow:  0 .25rem .625rem rgba(0, 0, 0, 0.1);
       display: flex;
