@@ -4,4 +4,7 @@
     &__button{
         @include btn-styling;
     }
+    &__results{
+        background-color: $purple;
+    }
 }
