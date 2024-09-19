@@ -1,4 +1,6 @@
 @import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
 .trends {
   margin: 2rem 1rem 3rem 1rem;
   @include tablet{
@@ -51,7 +53,40 @@
 }
 
 .date-picker input{
-  border:.0938rem solid #1a1a1a !important;
+  border:.0938rem solid $lighter-black !important;
   border-radius: .25rem;
   padding: .25rem;
+}
+
+.icon{
+  color: $header-blue;
+  @include tablet{
+   width:4rem;
+   height: auto;
+   margin-bottom: 1rem;
+  }
+  &-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  margin-right: 1.25rem;
+  cursor: pointer;
+
+  .icon-label {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover .icon-label {
+    opacity: 1;
+  }
 }

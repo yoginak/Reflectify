@@ -62,8 +62,7 @@ export default function TrackMood() {
       <div>
         <TypeAnimation
           className='mood__header'
-          sequence={[ "Hey there!",
-                  2000,"How’s your mood at the moment?", 2000]}
+          sequence={[ "Hey there! How are you feeling?", 2000]}
           wrapper="span"
           cursor={true}
           repeat={Infinity}

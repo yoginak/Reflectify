@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BsFillEnvelopeFill, BsDownload } from "react-icons/bs";
 import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -28,8 +29,8 @@ ChartJS.register(
 
 export default function Trends() {
   const [moodData, setMoodData] = useState([]);
-  const [startDate, setStartDate] = useState(null); // **Change**
-  const [endDate, setEndDate] = useState(null);     // **Change**
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const { userId } = useAuth();
 
   const fetchMoodData = async () => {
@@ -123,12 +124,53 @@ export default function Trends() {
     ],
   };
 
+  const formatMoodData = (data) => {
+    return data.map((entry) => {
+      const date = new Date(entry.timestamp);
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      };
+      const formattedDate = date.toLocaleString("en-US", options);
+
+      return `On ${formattedDate}, you felt ${entry.mood}.`;
+    });
+  };
+
+  const downloadFile = () => {
+    const humanReadableMoods = formatMoodData(filteredMoodData);
+    const data = humanReadableMoods.join("\n"); // Convert your data to a string
+    const blob = new Blob([data], { type: "text/plain" }); // You can change the MIME type for CSV
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "mood_data.txt"; // Filename for download
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  const shareViaEmail = () => {
+    downloadFile();
+    const subject = encodeURIComponent("Mood Trends Data");
+    const body = encodeURIComponent(
+      "I have logged my mood data. Please find the downloadable file attached and refer to it for details."
+    );
+    console.log(JSON.stringify(filteredMoodData));
+    const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+    // window.location.href = mailtoLink;
+    window.open(mailtoLink, "_self");
+  };
+
   return (
     <section className="trends">
       <h2 className="trends__heading">Mood Trends and Analysis</h2>
       <p className="trends__subtitle">
-        Visualize your mood patterns and explore trends across different moods and
-        categories to understand how your mood shifts within selected date
+        Visualize your mood patterns and explore trends across different moods
+        and categories to understand how your mood shifts within selected date
         ranges.
       </p>
       <div className="date-picker">
@@ -140,7 +182,7 @@ export default function Trends() {
             selectsStart
             startDate={startDate}
             endDate={endDate}
-            maxDate={new Date()} 
+            maxDate={new Date()}
             placeholderText="Select start date"
           />
         </div>
@@ -153,26 +195,49 @@ export default function Trends() {
             startDate={startDate}
             endDate={endDate}
             minDate={startDate}
-            maxDate={new Date()} 
+            maxDate={new Date()}
             placeholderText="Select end date"
           />
         </div>
       </div>
       <div className="chart-container trends__charts">
-        {startDate && endDate ? ( 
+        {startDate && endDate ? (
           <>
             <div className="trends__charts-bar">
               <Bar className="trends-bar" data={barChartData} />
             </div>
             <div className="trends__charts-pie">
               <h4 className="trends__charts-title">
-                Emotional Breakdown <p>Positive, Neutral, and Negative Mood Counter</p>
+                Emotional Breakdown{" "}
+                <p>Positive, Neutral, and Negative Mood Counter</p>
               </h4>
               <Pie data={pieChartData} />
             </div>
+            {/* <button onClick={shareViaEmail}>Share via Email</button> */}
+            <div className="icon-container">
+              <div
+                onClick={downloadFile}
+                style={{ cursor: "pointer" }}
+                className="icon-wrapper"
+              >
+                <BsDownload size={30} className="icon"/>
+                <span className="icon-label">Download</span>
+              </div>
+
+              <div
+                onClick={shareViaEmail}
+                style={{ cursor: "pointer" }}
+                className="icon-wrapper"
+              >
+                <BsFillEnvelopeFill size={30} className="icon"/>
+                <span className="icon-label">Share</span>
+              </div>
+            </div>
           </>
         ) : (
-          <p className="trends__message">Please select both start and end dates to view the charts.</p> // **Change**
+          <p className="trends__message">
+            Please select both start and end dates to view the charts.
+          </p>
         )}
       </div>
     </section>

@@ -1,0 +1,10 @@
+@import "../../styles/partials/variables";
+@import "../../styles/partials/mixins";
+
+.signup{
+    margin-bottom: 2rem;
+    &__button{
+     
+        @include btn-styling;
+    }
+}

@@ -1,11 +1,10 @@
 @import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
 
 .header{
 &-custom {
-   // background-color: white; 
-    color: black;  
-    //background-color: #37474F;   
-    background: linear-gradient(	90deg, #667eea 0%, #764ba2 100%)
+    color: black;    
+    background: linear-gradient(	90deg, $header-blue 0%, $header-purple 100%)
   }
   &__body{
     font-size: 1em;

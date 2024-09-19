@@ -58,7 +58,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 signup">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h1 className="text-center mb-4">Sign Up</h1>
@@ -130,11 +130,11 @@ export default function SignUp() {
                 {errors.general}
               </div>
             )}
-            <button className="btn btn-primary w-100" onClick={handleRegister}>
+            <button className="btn btn-primary w-100 signup__button" onClick={handleRegister}>
               Sign up
             </button>
             <div className="form-group mb-3">
-              <p className="mb-0  text-center">
+              <p className="mb-0 p-3 text-center">
                 Already have an account?{" "}
                 <NavLink to="/auth/login" className="fw-bold">
                   Sign In
