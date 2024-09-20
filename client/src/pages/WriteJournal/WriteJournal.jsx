@@ -75,7 +75,7 @@ export default function WriteJournal() {
 
   return (
     <div>
-      <div className="write-new">
+      <div className="journal">
         <Suspense fallback={<div>Loading...</div>}>
           <Row>
             <Col xs={12} md={6} className="animation">
@@ -120,8 +120,9 @@ export default function WriteJournal() {
                       <Form.Label>How was your day?</Form.Label>
                       <Form.Control
                         as="textarea"
+                        className="journal__textarea"
                         placeholder="How was your day?"
-                        rows={24}
+                        rows={14}
                         value={content}
                         onChange={(event) => setContent(event.target.value)}
                       />

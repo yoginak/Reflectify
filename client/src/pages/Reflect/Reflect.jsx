@@ -14,23 +14,16 @@ export default function Reflect() {
   const API_URL = import.meta.env.VITE_API_URL;
 
   function setMoodEmoji(mood) {
-    let moodEmoji = null;
-    if (mood === "rad") {
-      moodEmoji = "😁";
-    } else if (mood === "good") {
-      moodEmoji = "😊";
-    } else if (mood === "loved") {
-      moodEmoji = "😍";
-    } else if (mood === "bad") {
-      moodEmoji = "😒";
-    } else if (mood === "meh") {
-      moodEmoji = "😐";
-    } else if (mood === "angry") {
-      moodEmoji = "😡";
-    } else {
-      moodEmoji;
-    }
-    return moodEmoji;
+    const moodEmojis = {
+      rad: "😁",
+      good: "😊",
+      loved: "😍",
+      bad: "😒",
+      meh: "😐",
+      angry: "😡"
+    };
+  
+    return moodEmojis[mood] || null;
   }
 
   useEffect(() => {

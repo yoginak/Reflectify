@@ -2,13 +2,14 @@
 @import "../../styles/partials/variables";
 
 .shadow {
-  margin: 1.5rem;
+  margin: 1rem;
   @include tablet {
     margin: 3rem;
   }
 }
 
 .journal {
+  margin:0 1rem;
   &__header {
     font-size: 2.5em;
     display: inline-block;
@@ -16,7 +17,7 @@
   }
   &__button {
     @include btn-styling;
-  }
+  } 
 }
 
 .error {
