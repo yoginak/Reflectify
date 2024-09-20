@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../contexts/AuthContext";
 import axios from 'axios';
 
-// Emoji animation reference- https://codepen.io/Abobakr/pen/NRRNbZ
+// Emojis animation reference- https://codepen.io/Abobakr/pen/NRRNbZ
 export default function TrackMood() {
   const [selectedMood, setSelectedMood] = useState(null); 
   const [showModal, setShowModal] = useState(false); 
@@ -70,109 +70,109 @@ export default function TrackMood() {
         />
       </div>
       
-      <div className="emoji-container">
-        <div className="wrapper">
-          <div className="positive">
+      <div className="emojis__container">
+        <div className="emojis__wrapper">
+          <div className="emojis__positive">
             {/* Loved Mood */}
             <div
-              className={`emoji love ${selectedMood === 'loved' ? 'selected' : ''}`}
+              className={`emojis emoji__love ${selectedMood === 'loved' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('loved')}
             >
               <div className='mood__wrapper'>
                 <h4>loved</h4>
-                <figure className="face">
-                  <span className="eyes">
-                    <span className="heart-eye"><span className="heart"></span></span>
-                    <span className="heart-eye"><span className="heart"></span></span>
+                <figure className="emoji__face">
+                  <span className="emoji__eyes">
+                    <span className="emoji__heart-eye"><span className="emoji__heart"></span></span>
+                    <span className="emoji__heart-eye"><span className="emoji__heart"></span></span>
                   </span>
-                  <span className="mouth tounge"></span>
+                  <span className="emoji__mouth emoji__tounge"></span>
                 </figure>
               </div>
             </div>
 
             {/* Rad Mood */}
             <div
-              className={`emoji laugh ${selectedMood === 'rad' ? 'selected' : ''}`}
+              className={`emojis emoji__laugh ${selectedMood === 'rad' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('rad')}
             >
               <div className='mood__wrapper'>
                 <h4>rad</h4>
-                <figure className="face">
-                  <span className="eyes">
-                    <span className="eye"></span>
-                    <span className="eye"></span>
+                <figure className="emoji__face">
+                  <span className="emoji__eyes">
+                    <span className="emoji__eye"></span>
+                    <span className="emoji__eye"></span>
                   </span>
-                  <span className="mouth tounge"></span>
+                  <span className="emoji__mouth emoji__tounge"></span>
                 </figure>
               </div>
             </div>
 
             {/* Good Mood */}
             <div
-              className={`emoji smile ${selectedMood === 'good' ? 'selected' : ''}`}
+              className={`emojis emoji__smile ${selectedMood === 'good' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('good')}
             >
               <div className='mood__wrapper'>
                 <h4>good</h4>
-                <figure className="face">
-                  <span className="eyes">
-                    <span className="eye"></span>
-                    <span className="eye"></span>
+                <figure className="emoji__face">
+                  <span className="emoji__eyes">
+                    <span className="emoji__eye"></span>
+                    <span className="emoji__eye"></span>
                   </span>
-                  <span className="mouth"></span>
+                  <span className="emoji__mouth"></span>
                 </figure>
               </div>
             </div>
           </div>
 
-          <div className="negative">
+          <div className="emojis__negative">
             {/* Meh Mood */}
             <div
-              className={`emoji speechless ${selectedMood === 'meh' ? 'selected' : ''}`}
+              className={`emojis emoji__speechless ${selectedMood === 'meh' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('meh')}
             >
               <div className='mood__wrapper'>
                 <h4>meh</h4>
-                <figure className="face">
-                  <span className="eyes">
-                    <span className="eye"></span>
-                    <span className="eye"></span>
+                <figure className="emoji__face">
+                  <span className="emoji__eyes">
+                    <span className="emoji__eye"></span>
+                    <span className="emoji__eye"></span>
                   </span>
-                  <span className="mouth"></span>
+                  <span className="emoji__mouth"></span>
                 </figure>
               </div>
             </div>
 
             {/* Bad Mood */}
             <div
-              className={`emoji sad ${selectedMood === 'bad' ? 'selected' : ''}`}
+              className={`emojis emoji__sad ${selectedMood === 'bad' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('bad')}
             >
               <div className='mood__wrapper'>
                 <h4>bad</h4>
-                <figure className="face">
-                  <span className="eyes">
-                    <span className="eye"></span>
-                    <span className="eye"></span>
+                <figure className="emoji__face">
+                  <span className="emoji__eyes">
+                    <span className="emoji__eye"></span>
+                    <span className="emoji__eye"></span>
                   </span>
-                  <span className="mouth tounge"></span>
+                  <span className="emoji__mouth emoji__tounge"></span>
                 </figure>
               </div>
             </div>
 
             {/* Angry Mood */}
             <div
-              className={`emoji angry ${selectedMood === 'angry' ? 'selected' : ''}`}
+              className={`emojis emoji__angry ${selectedMood === 'angry' ? 'selected' : ''}`}
               onClick={() => handleMoodClick('angry')}
             >
               <div className='mood__wrapper'>
                 <h4>angry</h4>
-                <figure className="face">
-                  <span className="eyes">
-                    <span className="eye"></span>
-                    <span className="eye"></span>
+                <figure className="emoji__face">
+                  <span className="emoji__eyes">
+                    <span className="emoji__eye"></span>
+                    <span className="emoji__eye"></span>
                   </span>
-                  <span className="mouth"></span>
+                  <span className="emoji__mouth"></span>
                 </figure>
               </div>
             </div>
@@ -180,8 +180,8 @@ export default function TrackMood() {
         </div>
       </div>
 
-      <div className='button-wrapper'>
-        <Button variant="dark" className='mood-button' onClick={handleSubmit}>
+      <div className='mood__button-wrapper'>
+        <Button variant="dark" className='mood__button' onClick={handleSubmit}>
           Save Mood
         </Button>
       </div>
@@ -192,7 +192,7 @@ export default function TrackMood() {
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" className='modal-button' onClick={handleCloseModal}>
+          <Button variant="secondary" className='mood__modal-button' onClick={handleCloseModal}>
             Close
           </Button>
         </Modal.Footer>
