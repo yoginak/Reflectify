@@ -11,6 +11,7 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
@@ -41,7 +42,7 @@ export default function SignUp() {
     }
 
     try {
-      await axios.post("http://localhost:8080/auth/register", {
+      await axios.post(`${API_URL}auth/register`, {
         name: username,
         email,
         password,

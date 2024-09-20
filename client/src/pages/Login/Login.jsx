@@ -10,6 +10,7 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const { saveToken } = useAuth();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const validateForm = () => {
     const newErrors = {};
@@ -31,7 +32,7 @@ export default function Login() {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
+      const response = await axios.post(`${API_URL}auth/login`, {
         email,
         password,
       });

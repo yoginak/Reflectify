@@ -14,6 +14,7 @@ export default function TrackMood() {
   const [modalTitle, setModalTitle] = useState(''); 
   const navigate = useNavigate();
   const { userId } = useAuth();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleMoodClick = (mood) => {
     setSelectedMood(mood); 
@@ -35,7 +36,7 @@ export default function TrackMood() {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/moods/', data, {
+      const response = await axios.post(`${API_URL}moods/`, data, {
         headers: {
           "Content-Type": "application/json"
         }

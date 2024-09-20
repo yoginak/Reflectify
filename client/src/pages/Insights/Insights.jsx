@@ -15,6 +15,7 @@ export default function Insights() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [showForm, setShowForm] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +45,7 @@ export default function Insights() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/openApi/getTherapistInsights",
+        `${API_URL}openApi/getTherapistInsights`,
         {
           answers: Object.values(answers),
         }

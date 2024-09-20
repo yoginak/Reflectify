@@ -18,6 +18,7 @@ export default function WriteJournal() {
   const [successMessage, setSuccessMessage] = useState(null);
   const navigate = useNavigate();
   const { userId } = useAuth();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleCloseModal = () => setShowModal(false);
 
@@ -43,7 +44,7 @@ export default function WriteJournal() {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/journal/', journalData, {
+      const response = await axios.post(`${API_URL}journal/`, journalData, {
         headers: {
           "Content-Type": "application/json"
         }
