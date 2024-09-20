@@ -1,21 +1,21 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense } from "react";
 import { Card, Row, Col, Form, Button, Modal } from "react-bootstrap";
-const WaveRobot = React.lazy(() => import('../../components/Animations/WaveRobot'));
+const WaveRobot = React.lazy(() =>
+  import("../../components/Animations/WaveRobot")
+);
 import { TypeAnimation } from "react-type-animation";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import "./WriteJournal.scss";
-import axios from 'axios';
+import axios from "axios";
 
 export default function WriteJournal() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [showModal, setShowModal] = useState(false); 
-  const [modalMessage, setModalMessage] = useState(''); 
-  const [modalTitle, setModalTitle] = useState('');
-  const [successMessage, setSuccessMessage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalTitle, setModalTitle] = useState("");
   const navigate = useNavigate();
   const { userId } = useAuth();
   const API_URL = import.meta.env.VITE_API_URL;
@@ -25,52 +25,49 @@ export default function WriteJournal() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    setError(null);
-    setSuccessMessage(null); 
 
     if (!title || !content) {
-      setModalTitle('Submission Failed');
-      setModalMessage('Title and content are required');
+      setModalTitle("Submission Failed");
+      setModalMessage("Title and content are required");
       setShowModal(true);
-      setError("Title and content are required.");
       setLoading(false);
       return;
     }
 
     const journalData = {
-      user_id: userId,  
+      user_id: userId,
       title,
-      content 
+      content,
     };
 
     try {
       const response = await axios.post(`${API_URL}journal/`, journalData, {
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       });
 
-      if (response.status === 201) { 
-        setSuccessMessage("Journal entry saved successfully.");
-        setTitle("");  
+      if (response.status === 201) {
+        setTitle("");
         setContent("");
-        navigate('/reflect');
+        navigate("/reflect");
       } else {
-        setError("Error saving journal entry. Please try again.");
-        setModalTitle('Submission Failed');
+        setModalTitle("Submission Failed");
         setModalMessage('"Error saving journal entry. Please try again.');
-        setShowModal(true);     
+        setShowModal(true);
       }
     } catch (err) {
       if (err.response && err.response.data) {
-        setError(err.response.data.message || "Error saving journal entry.");
+        setModalMessage("Error saving journal entry.");
+        setShowModal(true);
       } else {
-        setError("Failed to save journal entry. Please check the server or network.");
-        setModalTitle('Submission Failed');
-        setModalMessage('Failed to save journal entry. Please check the server or network.');
-        setShowModal(true);      
+        setModalTitle("Submission Failed");
+        setModalMessage(
+          "Failed to save journal entry. Please check the server or network."
+        );
+        setShowModal(true);
       }
-      console.error("Error during submission:", err); 
+      console.error("Error during submission:", err);
     } finally {
       setLoading(false);
     }
@@ -81,7 +78,7 @@ export default function WriteJournal() {
       <div className="write-new">
         <Suspense fallback={<div>Loading...</div>}>
           <Row>
-            <Col xs={12} md={6}  className='animation'>
+            <Col xs={12} md={6} className="animation">
               <WaveRobot />
             </Col>
             <Col
@@ -129,9 +126,14 @@ export default function WriteJournal() {
                         onChange={(event) => setContent(event.target.value)}
                       />
                     </Form.Group>
-                    <Button variant="dark" className='journal__button' type="submit" disabled={loading}>
+                    <Button
+                      variant="dark"
+                      className="journal__button"
+                      type="submit"
+                      disabled={loading}
+                    >
                       {loading ? "Submitting..." : "Submit"}
-                    </Button>                    
+                    </Button>
                   </Form>
                 </Card.Body>
               </Card>
@@ -145,7 +147,11 @@ export default function WriteJournal() {
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" className='modal-button' onClick={handleCloseModal}>
+          <Button
+            variant="secondary"
+            className="modal-button"
+            onClick={handleCloseModal}
+          >
             Close
           </Button>
         </Modal.Footer>

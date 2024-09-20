@@ -32,10 +32,11 @@ export default function Trends() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const { userId } = useAuth();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchMoodData = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/moods/${userId}`);
+      const response = await axios.get(`${API_URL}moods/${userId}`);
       setMoodData(response.data);
     } catch (error) {
       console.error("Error fetching mood data:", error);
@@ -142,12 +143,12 @@ export default function Trends() {
 
   const downloadFile = () => {
     const humanReadableMoods = formatMoodData(filteredMoodData);
-    const data = humanReadableMoods.join("\n"); // Convert your data to a string
-    const blob = new Blob([data], { type: "text/plain" }); // You can change the MIME type for CSV
+    const data = humanReadableMoods.join("\n");
+    const blob = new Blob([data], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "mood_data.txt"; // Filename for download
+    a.download = "mood_data.txt";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -161,7 +162,6 @@ export default function Trends() {
     );
     console.log(JSON.stringify(filteredMoodData));
     const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
-    // window.location.href = mailtoLink;
     window.open(mailtoLink, "_self");
   };
 
@@ -213,14 +213,14 @@ export default function Trends() {
               </h4>
               <Pie data={pieChartData} />
             </div>
-            {/* <button onClick={shareViaEmail}>Share via Email</button> */}
+
             <div className="icon-container">
               <div
                 onClick={downloadFile}
                 style={{ cursor: "pointer" }}
                 className="icon-wrapper"
               >
-                <BsDownload size={30} className="icon"/>
+                <BsDownload size={30} className="icon" />
                 <span className="icon-label">Download</span>
               </div>
 
@@ -229,7 +229,7 @@ export default function Trends() {
                 style={{ cursor: "pointer" }}
                 className="icon-wrapper"
               >
-                <BsFillEnvelopeFill size={30} className="icon"/>
+                <BsFillEnvelopeFill size={30} className="icon" />
                 <span className="icon-label">Share</span>
               </div>
             </div>

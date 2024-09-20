@@ -3,7 +3,7 @@
 
 .trends {
   margin: 2rem 1rem 3rem 1rem;
-  @include tablet{
+  @include tablet {
     margin: 3rem 2rem;
   }
   &__charts {
@@ -23,14 +23,14 @@
     width: 100% !important;
     height: auto !important;
   }
-  &__date{
-    margin-top:1rem;
-    &-label{
-      margin-right:1rem;
+  &__date {
+    margin-top: 1rem;
+    &-label {
+      margin-right: 1rem;
     }
   }
-  &__heading{
-    padding: 1.5rem 0 .5rem 0;
+  &__heading {
+    padding: 1.5rem 0 0.5rem 0;
   }
 }
 
@@ -38,8 +38,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top:1.5rem;
-  
+  margin-top: 1.5rem;
+
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
@@ -52,20 +52,20 @@
   }
 }
 
-.date-picker input{
-  border:.0938rem solid $lighter-black !important;
-  border-radius: .25rem;
-  padding: .25rem;
+.date-picker input {
+  border: 0.0938rem solid $lighter-black !important;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
 }
 
-.icon{
+.icon {
   color: $header-blue;
-  @include tablet{
-   width:4rem;
-   height: auto;
-   margin-bottom: 1rem;
+  @include tablet {
+    width: 4rem;
+    height: auto;
+    margin-bottom: 1rem;
   }
-  &-container{
+  &-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
