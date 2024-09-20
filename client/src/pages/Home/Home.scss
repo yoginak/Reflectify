@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   flex-direction: column-reverse;
-  background-color: white;
+  background-color: $background-white;
   padding-top: 3rem;
   @include desktop{
     height:auto !important;

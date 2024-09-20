@@ -48,8 +48,20 @@
 .react-datepicker {
   &-wrapper {
     margin-bottom: 1rem;
-    margin-left: 1rem;
+    margin-left: 1rem;   
   }
+}
+
+.react-datepicker__day--selected {
+  background-color: $header-blue !important;
+}
+
+.react-datepicker__day--in-range {
+  background-color: $calendar-blue !important;  
+}
+
+.react-datepicker__day--keyboard-selected{
+  background-color: $header-blue !important;
 }
 
 .date-picker input {

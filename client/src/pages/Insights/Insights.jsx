@@ -37,7 +37,8 @@ export default function Insights() {
     return Object.keys(formErrors).length === 0;
   };
 
-  const handleGetInsight = async () => {
+  const handleGetInsight = async (e) => {
+    e.preventDefault();
     if (!validateForm()) {
       return;
     }
@@ -53,6 +54,7 @@ export default function Insights() {
       setInsight(response.data.insights);
       setShowForm(false);
     } catch (error) {
+      //handling fallback at front end as well, if chatgpt api fails due to limited quota issue
       if (error.response && error.response.status === 429) {
         setInsight(
           "Here are some tips for you: Take a deep breath, focus on a small task that brings you joy, and practice mindfulness for a few minutes. 😊"
@@ -68,7 +70,7 @@ export default function Insights() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-4">
       <h2>Your Emotional Wellness Check-In</h2>
       <p>
         Share how you've been feeling lately, and we'll offer AI-driven insights
@@ -78,7 +80,7 @@ export default function Insights() {
       {showForm ? (
         <form>
           <div className="form-group">
-            <label>How have you been feeling emotionally?</label>
+            <label  className="mt-1">How have you been feeling emotionally?</label>
             <input
               type="text"
               className={`form-control ${errors.question1 ? "is-invalid" : ""}`}
@@ -91,7 +93,7 @@ export default function Insights() {
             )}
           </div>
           <div className="form-group">
-            <label>Have you experienced stress or anxiety recently?</label>
+            <label className="mt-2">Have you experienced stress or anxiety recently?</label>
             <input
               type="text"
               className={`form-control ${errors.question2 ? "is-invalid" : ""}`}
@@ -104,7 +106,7 @@ export default function Insights() {
             )}
           </div>
           <div className="form-group">
-            <label>How have your relationships been lately?</label>
+            <label className="mt-2">How have your relationships been lately?</label>
             <input
               type="text"
               className={`form-control ${errors.question3 ? "is-invalid" : ""}`}
@@ -117,7 +119,7 @@ export default function Insights() {
             )}
           </div>
           <div className="form-group">
-            <label>How do you spend your free time?</label>
+            <label className="mt-2">How do you spend your free time?</label>
             <input
               type="text"
               className={`form-control ${errors.question4 ? "is-invalid" : ""}`}
@@ -130,7 +132,7 @@ export default function Insights() {
             )}
           </div>
           <div className="form-group">
-            <label>Do you feel well-rested and energetic?</label>
+            <label className="mt-2">Do you feel well-rested and energetic?</label>
             <input
               type="text"
               className={`form-control ${errors.question5 ? "is-invalid" : ""}`}

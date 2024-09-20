@@ -3,7 +3,10 @@
 @import "../../styles/partials/animations";
 
 .mindfulness {
-  margin: 3rem 2rem;
+  margin: 2rem 1rem;
+  @include tablet {
+    padding: 3rem 2rem;
+  }
 }
 
 .breathing-container {
@@ -17,12 +20,12 @@
   position: absolute;
   display: block;
   top: -0.5625rem;
-  left: calc(50% - .5rem);
+  left: calc(50% - 0.5rem);
   background-image: radial-gradient(
     circle at top center,
     rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) .5rem,
-    transparent .5rem,
+    rgba(255, 255, 255, 1) 0.5rem,
+    transparent 0.5rem,
     transparent 100%
   );
 }
@@ -41,7 +44,7 @@
   position: relative;
   animation-name: breathing;
   @extend .animation-properties;
-  box-shadow: inset 0 0 0 .1875rem $header-blue;
+  box-shadow: inset 0 0 0 0.1875rem $header-blue;
   z-index: -1;
 }
 
@@ -49,7 +52,7 @@
   content: "breathe in";
   position: absolute;
   color: rgba(255, 255, 255, 0.7);
-  top: calc(50% - .625rem);
+  top: calc(50% - 0.625rem);
   font-size: 1.5rem;
   width: 100%;
   vertical-align: middle;
@@ -65,13 +68,13 @@
   position: absolute;
   display: block;
   top: 0;
-  left: calc(50% - .5rem);
+  left: calc(50% - 0.5rem);
   z-index: 999;
   background-image: radial-gradient(
     circle at top center,
     $header-blue 0%,
-    $header-purple .5rem,
-    transparent .5rem,
+    $header-purple 0.5rem,
+    transparent 0.5rem,
     transparent 100%
   );
   transform-origin: center bottom;

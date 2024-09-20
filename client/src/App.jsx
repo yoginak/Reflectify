@@ -50,7 +50,7 @@ function App() {
               path="/insights"
               element={<ProtectedRoute element={<Insights />} />}
             />
-             <Route
+            <Route
               path="/trends"
               element={<ProtectedRoute element={<Trends />} />}
             />

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../contexts/AuthContext";
 import axios from 'axios';
 
-// Emojis animation reference- https://codepen.io/Abobakr/pen/NRRNbZ
+// Emojis animation reference- https://codepen.io/Abobakr/pen/NRRNbZ --modified it as per usage
 export default function TrackMood() {
   const [selectedMood, setSelectedMood] = useState(null); 
   const [showModal, setShowModal] = useState(false); 
