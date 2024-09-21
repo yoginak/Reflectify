@@ -42,6 +42,9 @@ Prerequisites
 ### Install frontend dependencies:
 - npm install
 
+### Create a .env file with API localhost URL:
+- VITE_API_URL = http://localhost:8080/
+
 ### Start the frontend
 - npm run dev
 
