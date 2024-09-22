@@ -56,7 +56,7 @@ export default function Home() {
           <img src={feature1} alt="illustration for write feature" className="features-image" />
           <div className="features__card features__card-2">
             <h2>Write</h2>
-            <h5>Capture your thoughts and reflect with personal journaling.</h5>
+            <h5>Capture your thoughts and reflect with journaling.</h5>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export default function Home() {
           />
           <div className="features__card features__card-3">
             <h2>Insights</h2>
-            <h5>Gain meaningful insights into your emotions and behaviors.</h5>
+            <h5>Visualize trends, gain insights into emotional patterns.</h5>
           </div>
         </div>
 

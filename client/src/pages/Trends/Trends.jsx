@@ -206,12 +206,14 @@ export default function Trends() {
             <div className="trends__charts-bar">
               <Bar className="trends-bar" data={barChartData} />
             </div>
-            <div className="trends__charts-pie">
+            <div className="trends__charts-bottom">
               <h4 className="trends__charts-title">
                 Emotional Breakdown{" "}
                 <p>Positive, Neutral, and Negative Mood Counter</p>
               </h4>
+              <div className="trends__charts-pie">
               <Pie data={pieChartData} />
+              </div>
             </div>
 
             <div className="icon-container">

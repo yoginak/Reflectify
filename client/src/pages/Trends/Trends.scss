@@ -14,9 +14,21 @@
     }
     &-bar {
       margin-top: 3rem;
+      @include tablet{
+        padding: 0 2rem;
+      } 
+    }
+    &-bottom{
+      margin-top: 3rem;
     }
     &-pie {
-      margin-top: 3rem;
+      @include tablet{
+        padding: 0 2rem;
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content:center;
+      }      
     }
   }
   &-bar {
