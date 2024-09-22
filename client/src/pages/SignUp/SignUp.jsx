@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -95,7 +95,16 @@ export default function SignUp() {
               )}
             </div>
             <div className="form-group mb-3">
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">
+                Password:{" "}
+                <span className="tooltip-icon">
+                  ⓘ
+                  <span className="tooltip-text">
+                    Password must be at least 8 characters long, include one
+                    capital letter and one symbol.
+                  </span>
+                </span>
+              </label>
               <input
                 id="password"
                 type="password"
@@ -131,7 +140,10 @@ export default function SignUp() {
                 {errors.general}
               </div>
             )}
-            <button className="btn btn-primary w-100 signup__button" onClick={handleRegister}>
+            <button
+              className="btn btn-primary w-100 signup__button"
+              onClick={handleRegister}
+            >
               Sign up
             </button>
             <div className="form-group mb-3">

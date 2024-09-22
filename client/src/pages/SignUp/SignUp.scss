@@ -1,10 +1,51 @@
 @import "../../styles/partials/variables";
 @import "../../styles/partials/mixins";
 
-.signup{
-    margin-bottom: 2rem;
-    &__button{
-     
-        @include btn-styling;
+.signup {
+  margin-bottom: 2rem;
+  &__button {
+    @include btn-styling;
+  }
+}
+
+.tooltip-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: $header-blue;
+
+  .tooltip-text {
+    visibility: hidden;
+    width: 11.875rem;
+    background-color: $header-blue;
+    color: $text-white;
+    text-align: center;
+    border-radius: .3125rem;
+    padding: .3125rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -0.3125rem;
+      border-width: 0.3125rem;
+      border-style: solid;
+      border-color: $header-blue transparent transparent transparent;
     }
+  }
+
+  &:hover {
+    .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 }
