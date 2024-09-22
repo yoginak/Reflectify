@@ -1,0 +1,8 @@
+@import "../../styles/partials/mixins";
+
+.login{
+    &__button{
+     
+        @include btn-styling;
+    }
+}

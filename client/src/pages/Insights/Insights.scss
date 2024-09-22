@@ -1,0 +1,10 @@
+@import "../../styles/partials/mixins";
+
+.insights{
+    &__button{
+        @include btn-styling;
+    }
+    &__results{
+        background-color: $purple;
+    }
+}

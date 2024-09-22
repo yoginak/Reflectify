@@ -1,0 +1,15 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.header{
+&-custom {
+    color: black;    
+    background: linear-gradient(	90deg, $header-blue 0%, $header-purple 100%)
+  }
+  &__body{
+    font-size: 1em;
+    @include tablet{
+      font-size: 1.5em;;
+    }
+  }
+}

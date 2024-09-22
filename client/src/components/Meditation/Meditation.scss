@@ -1,0 +1,8 @@
+@import "../../styles/partials/mixins";
+
+.meditation {
+  margin: 2rem 1rem;
+  @include tablet {
+    padding: 1.5rem 2rem 3rem 2rem;
+  }
+}

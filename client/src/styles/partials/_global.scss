@@ -1,0 +1,64 @@
+@use "./mixins" as *;
+@use "./typography" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', serif; 
+  }
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  font-family: "Comfortaa";
+
+  @include tablet {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+  }
+}
+
+h2 {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  font-family: "Comfortaa";
+}
+
+h3 {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 700;
+  font-family: "Comfortaa";
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+h4 {
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  font-family: "Comfortaa";
+
+  @include tablet {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+}
+
+p {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  font-family: "Comfortaa";
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}

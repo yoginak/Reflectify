@@ -1,0 +1,26 @@
+@import "./variables";
+
+@mixin mobile {
+  @media screen and (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin btn-styling{
+  background: linear-gradient(	90deg, $header-blue 0%, $header-purple 100%);
+  color: $text-white;
+  border-radius: 2rem !important;
+  border-color: $text-white !important;
+}

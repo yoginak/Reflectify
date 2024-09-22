@@ -1,0 +1,13 @@
+@import "../../styles/partials/variables";
+
+.uplift__tab {
+    color: $header-purple !important; 
+    &:hover {
+      color: $header-blue !important;
+    }
+  
+    &.active {
+      color: $lighter-black !important;
+      background-color: #f8f9fa; 
+    }
+  }

@@ -1,0 +1,115 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/animations";
+
+.hero {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  background-color: $background-white;
+  padding-top: 3rem;
+  @include desktop{
+    height:auto !important;
+  }   
+  &__img {
+    width: 90%;
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__img {
+      width: 55%;
+    }
+  }
+  @include desktop {
+    &__img {
+      width: 65%;
+    }
+  }
+
+  &__title {
+    color: $text-blue;
+    font-weight: 700;
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;     
+      @include desktop {
+        width: 30%;
+      }
+    }
+  }
+  &__subtitle {
+    &-wrapper {
+      color: $text-orange;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10%;
+    }
+  }
+}
+
+.footer{
+display: flex;
+justify-content: flex-end;
+align-items: baseline;
+background-color: lightgray;
+&__text{
+  padding: .5rem;
+}
+}
+
+.features{
+padding: 1rem 1rem 5rem 1rem;
+text-align: center;
+    @include tablet{
+        display: flex;
+        align-items: flex-end;
+    }
+    &-image{
+        &--sizing{
+            width:100%;            
+        }        
+    }   
+    &__card{
+      flex: 1;
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: .5rem;
+      text-align: left;
+      box-shadow:  0 .25rem .625rem rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-1 {
+        background-color: $salmon;
+      }
+      
+      &-2 {
+        background-color: $green;
+      }
+      
+      &-3 {
+        background-color: $purple;
+      }
+      
+      &-4 {
+        background-color: $yellow;
+      }
+    }
+}
+
+.features__type h2, .features__type h5 {
+  opacity: 0;
+  animation: fadeInOut 5s ease-in-out infinite;
+}
+
+.features__type img {
+  animation: slideUpDown 5s ease-in-out infinite;
+}
+
+.features__type--slideRight img {
+  animation: slideLeftRight 5s ease-in-out infinite;
+}

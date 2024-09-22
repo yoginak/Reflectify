@@ -1,0 +1,116 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.trends {
+  margin: 2rem 1rem 3rem 1rem;
+  @include tablet {
+    margin: 3rem 2rem;
+  }
+  &__charts {
+    display: flex;
+    flex-direction: column;
+    &-title {
+      margin-bottom: 3rem;
+    }
+    &-bar {
+      margin-top: 3rem;
+      @include tablet{
+        padding: 0 2rem;
+      } 
+    }
+    &-bottom{
+      margin-top: 3rem;
+    }
+    &-pie {
+      @include tablet{
+        padding: 0 2rem;
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content:center;
+      }      
+    }
+  }
+  &-bar {
+    width: 100% !important;
+    height: auto !important;
+  }
+  &__date {
+    margin-top: 1rem;
+    &-label {
+      margin-right: 1rem;
+    }
+  }
+  &__heading {
+    padding: 1.5rem 0 0.5rem 0;
+  }
+}
+
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.react-datepicker {
+  &-wrapper {
+    margin-bottom: 1rem;
+    margin-left: 1rem;   
+  }
+}
+
+.react-datepicker__day--selected {
+  background-color: $header-blue !important;
+}
+
+.react-datepicker__day--in-range {
+  background-color: $calendar-blue !important;  
+}
+
+.react-datepicker__day--keyboard-selected{
+  background-color: $header-blue !important;
+}
+
+.date-picker input {
+  border: 0.0938rem solid $lighter-black !important;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.icon {
+  color: $header-blue;
+  @include tablet {
+    width: 4rem;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  margin-right: 1.25rem;
+  cursor: pointer;
+
+  .icon-label {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover .icon-label {
+    opacity: 1;
+  }
+}

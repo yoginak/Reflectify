@@ -1,0 +1,40 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.shadow {
+  margin: 1rem;
+  @include tablet {
+    margin: 3rem;
+  }
+}
+
+.journal {
+  margin:0 1rem;
+  &__header {
+    font-size: 2.5em;
+    display: inline-block;
+    margin: 10px;
+  }
+  &__button {
+    @include btn-styling;
+  } 
+}
+
+.error {
+  color: $error-red;
+}
+
+.success {
+  color: $success-green;
+}
+
+.animation {
+  width: 100vh;
+  @include tablet {
+    width: 35%;
+  }
+}
+
+.modal-button{
+  @include btn-styling;
+}
