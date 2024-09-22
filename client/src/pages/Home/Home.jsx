@@ -68,7 +68,7 @@ export default function Home() {
           />
           <div className="features__card features__card-3">
             <h2>Insights</h2>
-            <h5>Visualize trends, gain insights into emotional patterns.</h5>
+            <h5>Analyze trends, gain insights into emotional behaviors.</h5>
           </div>
         </div>
 
