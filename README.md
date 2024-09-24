@@ -23,6 +23,7 @@ Prerequisites
 - DB_USER=your-database-user
 - DB_PASS=your-database-password
 - DB_NAME=reflectify
+- JWT_SECRET=your secret key
 - CHATGPT_API_KEY=your-openai-api-key
 
 ### Run database migrations to set up your schema:
