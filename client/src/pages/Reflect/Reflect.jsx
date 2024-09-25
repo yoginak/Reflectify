@@ -4,6 +4,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useAuth } from "../../contexts/AuthContext";
 import axios from "axios";
+import moment from "moment-timezone"; // Using moment-timezone for date handling
 import "./Reflect.scss";
 
 export default function Reflect() {
@@ -20,19 +21,24 @@ export default function Reflect() {
       loved: "😍",
       bad: "😒",
       meh: "😐",
-      angry: "😡"
+      angry: "😡",
     };
-  
+
     return moodEmojis[mood] || null;
+  }
+
+  // Convert timestamp to Toronto time using moment-timezone
+  function convertToTorontoTime(timestamp) {
+    return moment(timestamp).tz("America/Toronto").format("YYYY-MM-DD hh:mm A");
   }
 
   useEffect(() => {
     const fetchJournals = async () => {
       try {
         const response = await axios.get(
-          `${API_URL}journal/${userId}?date=${
-            selectedDate.toISOString().split("T")[0]
-          }`
+          `${API_URL}journal/${userId}?date=${moment(selectedDate)
+            .tz("America/Toronto")
+            .format("YYYY-MM-DD")}` // Format the selectedDate to local time zone
         );
         const data = response.data;
         setJournals(Array.isArray(data) ? data : []);
@@ -45,9 +51,9 @@ export default function Reflect() {
     const fetchMoods = async () => {
       try {
         const response = await axios.get(
-          `${API_URL}moods/${userId}?date=${
-            selectedDate.toISOString().split("T")[0]
-          }`
+          `${API_URL}moods/${userId}?date=${moment(selectedDate)
+            .tz("America/Toronto")
+            .format("YYYY-MM-DD")}` // Format the selectedDate to local time zone
         );
         const data = response.data;
         setMoods(Array.isArray(data) ? data : []);
@@ -75,7 +81,7 @@ export default function Reflect() {
         </div>
         <div className="reflect__mood">
           <h2 className="reflect__section-header reflect__section-header--style">
-            Moods for {selectedDate.toDateString()}
+            Moods for {moment(selectedDate).tz("America/Toronto").format("MMMM D, YYYY")}
           </h2>
           {moods.length > 0 ? (
             moods.map((mood) => (
@@ -83,13 +89,7 @@ export default function Reflect() {
                 <p>
                   Mood: {mood.mood} {setMoodEmoji(mood.mood)}
                 </p>
-                <p>
-                  {new Date(mood.timestamp).toLocaleString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: true,
-                  })}
-                </p>
+                <p>{convertToTorontoTime(mood.timestamp)}</p>
               </div>
             ))
           ) : (
@@ -100,7 +100,7 @@ export default function Reflect() {
 
       <section className="reflect__section-bottom">
         <h2 className="reflect__section-header">
-          Journals for {selectedDate.toDateString()}
+          Journals for {moment(selectedDate).tz("America/Toronto").format("MMMM D, YYYY")}
         </h2>
         {journals.length > 0 ? (
           journals.map((journal, index) => (
@@ -112,13 +112,7 @@ export default function Reflect() {
             >
               <h4>{journal.title}</h4>
               <p>{journal.content}</p>
-              <p>
-                {new Date(journal.timestamp).toLocaleString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: true,
-                })}
-              </p>
+              <p>{convertToTorontoTime(journal.timestamp)}</p>
             </div>
           ))
         ) : (
